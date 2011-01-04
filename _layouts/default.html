@@ -6,49 +6,58 @@
     <meta name="robots" content="index,follow"/>
     <meta name="mssmarttagspreventparsing" content="true"/>
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" /> 
-    <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css" />
+    <link rel="alternate" title="Blog posts - RSS" type="application/rss+xml" href="/rss" />
+    <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/screen.css" />
+    <link media="print" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/print.css" />
+    <!--[if lt IE 8]>
+      <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/ie.css" />
+    <![endif]-->
     <link media="screen" rel="stylesheet" type="text/css" href="/stylesheets/screen.css" />
     <link media="print" rel="stylesheet" type="text/css" href="/stylesheets/print.css" />
     <link rel="start" href="http://www.workmad3.com" title="workmad3.com"/>
   </head>
   <body>
-    <div id="header">
-      <div id="masthead">
-        <div id="logo">
+    <div class="container">
+      <div id="header" class="span-24 last">
+        <div id="logo" class="span-3">
           <a href="/"><img src="/images/logo.png" /></a>
         </div>
-        <div id="banner">
-          <img src="/images/banner.png" />
+        <div id="masthead" class="span-21 last">
+          <div id="banner" class="span-21 last">
+            <a href="/"><img src="/images/banner.png" /></a>
+          </div>
+          <div id="topmenu" class="span-21 last">
+            <ul id="topmenu">
+              {% if page.title == "Home" %}
+                <li class="current">Home</li>
+              {% else %}
+                <li><a href="/index.html">Home</a></li>
+              {% endif %}
+              {% if page.title == "About Me" %}
+                <li class="current">About Me</li>
+              {% else %}
+                <li><a href="/about.html">About Me</a></li>
+              {% endif %}
+              {% if page.title == "CV" %}
+                <li class="current">CV</li>
+              {% else %}
+                <li><a href="/cv.html">CV</a></li>
+              {% endif %}
+              {% if page.title == "Blog" %}
+                <li class="current">Blog</li>
+              {% else %}
+                <li><a href="/blog.html">Blog</a>
+              {% endif %}
+            </ul>
+          </div>
         </div>
       </div>
-      <ul id="topmenu">
-        {% if page.title == "Home" %}
-          <li class="current">Home</li>
-        {% else %}
-          <li><a href="/index.html">Home</a></li>
-        {% endif %}
-        {% if page.title == "About Me" %}
-          <li class="current">About Me</li>
-        {% else %}
-          <li><a href="/about.html">About Me</a></li>
-        {% endif %}
-        {% if page.title == "CV" %}
-          <li class="current">CV</li>
-        {% else %}
-          <li><a href="/cv.html">CV</a></li>
-        {% endif %}
-        {% if page.title == "Blog" %}
-          <li class="current">Blog</li>
-        {% else %}
-          <li><a href="/blog.html">Blog</a>
-        {% endif %}
-      </ul>
-    </div>
-    <div id="body">
-      {{ content }}
-    </div>
-    <div id="footer">
-      &copy; David Workman, 2010
+      <div id="body" class="span-24 last">
+        {{ content }}
+      </div>
+      <div id="footer" class="span-24 last">
+        &copy; David Workman, 2010
+      </div>
     </div>
     <script src="/javascripts/jquery.min.js"></script>
     <script src="/javascripts/application.js"></script>
