@@ -29,25 +29,30 @@
           <div id="topmenu" class="span-21 last">
             <ul id="topmenu">
               {% if page.title == "Home" %}
-                <li class="current">Home</li>
+                <li class="current"><a href="/index.html">Home</a></li>
               {% else %}
                 <li><a href="/index.html">Home</a></li>
               {% endif %}
-              {% if page.title == "About Me" %}
-                <li class="current">About Me</li>
-              {% else %}
-                <li><a href="/about.html">About Me</a></li>
-              {% endif %}
-              {% if page.title == "CV" %}
-                <li class="current">CV</li>
-              {% else %}
-                <li><a href="/cv.html">CV</a></li>
-              {% endif %}
+              {% if page.title == "News" %}
+                <li class="current"><a href="/news.html">News</a></li>
+              {%else%}
+                <li><a href="/news.html">News</a></li>
+              {%endif%}
               {% if page.title == "Blog" %}
-                <li class="current">Blog</li>
+                <li class="current"><a href="/blog.html">Blog</a></li>
               {% else %}
                 <li><a href="/blog.html">Blog</a>
               {% endif %}
+              {% if page.title == "CV" %}
+                <li class="current"><a href="/cv.html">CV</a></li>
+              {% else %}
+                <li><a href="/cv.html">CV</a></li>
+              {% endif %}
+              {% if page.title == "About Me" %}
+                <li class="current"><a href="/about.html">About Me</a></li>
+              {% else %}
+                <li><a href="/about.html">About Me</a></li>
+              {%endif%}
             </ul>
           </div>
         </div>
