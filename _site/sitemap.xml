@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>http://www.workmad3.com/</loc>
-   </url>
+  <url>
+    <loc>http://www.workmad3.com/<loc> 
+  </url>
+  <url>
+    <loc>http://www.workmad3.com/index.html</loc>
+  </url>
+  <url>
+    <loc>http://www.workmad3.com/about.html<loc> 
+  </url>
+  <url>
+    <loc>http://www.workmad3.com/cv.html<loc> 
+  </url>
+  <url>
+    <loc>http://www.workmad3.com/blog.html<loc> 
+  </url>
+  
 </urlset> 

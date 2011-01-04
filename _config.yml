@@ -13,10 +13,14 @@ lsi:         true
 pygments:    true
 markdown:    rdiscount
 permalink:   date
-paginate:    10
+paginate: true
+paginate: 10
+paginate_file: blog.html
 
 exclude:
   - README.markdown
+  - Gemfile
+  - Gemfile.lock
 
 rdiscount:
   extensions: []
