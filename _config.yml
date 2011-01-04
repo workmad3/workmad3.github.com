@@ -15,6 +15,9 @@ markdown:    rdiscount
 permalink:   date
 paginate:    10
 
+exclude:
+  - README.markdown
+
 rdiscount:
   extensions: []
 
