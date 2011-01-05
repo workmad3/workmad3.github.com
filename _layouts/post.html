@@ -3,7 +3,7 @@ layout: default
 ---
   <div id="post" class="span-15 last">
     <div id="post_header" class="span-15 last">
-      Author: David Workman, posted on {{ page.date }} 
+      Author: David Workman, posted on {{ page.date | date: "%d %B, %Y" }} 
     </div>
     <div id="post_content" class="span-15 last">
       {{ content }}

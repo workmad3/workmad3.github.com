@@ -61,10 +61,20 @@
         <h1>{{ page.title }}</h1>
         <div id="left-menu" class="span-3 last">
           <div id="last_5_news" class="span-3 last">
-            Latest News:
+            Latest News:<br/>
+            <ul>
+            {% for n in site.categories.news limit: 5 %}
+              <li><a href="{{ n.url }}">{{ n.title }}</a></li>
+            {% endfor %}
+            </ul>
           </div>
           <div id="last_5_blog" class="span-3 last">
-            Latest blogs
+            Latest Blog posts:<br/>
+            <ul>
+            {% for p in site.categories.blog limit: 5 %}
+              <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+            </ul>
           </div>
         </div>
         <div id="content" class="span-15">

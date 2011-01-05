@@ -43,6 +43,10 @@ h1, a:visited, a {
   font-style: italic;
 }
 
+#last_5_blog, #last_5_news {
+  font-size: 10px;
+}
+
 /*Menu styles from http://www.oswt.co.uk/css_menus/styles/Zeldmans%20DWWS%20menu/preview.html */
 #topmenu {
 	margin: 0px 0 0 0px;
