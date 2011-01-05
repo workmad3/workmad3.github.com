@@ -13,6 +13,10 @@ html, body {
   background-color: #4C453B;
 }
 
+h1, a:visited {
+  color: #261726;
+}
+
 .container, h2 {
   color: #CCCBAC;
 }
@@ -31,10 +35,6 @@ html, body {
 
 a {
   color: #B2A98F;
-}
-
-a:visited {
-  color: #261726;
 }
 
 /*Menu styles from http://www.oswt.co.uk/css_menus/styles/Zeldmans%20DWWS%20menu/preview.html */
@@ -64,9 +64,11 @@ a:visited {
 	background: #261726;
 	width: 78px;
 	height: 18px;
+  border-radius: 9px;
+  -moz-border-radius: 2px;
 	border: 1px solid #B2A98F;
 	padding: 0;
-	margin: 0 0 10px 0;
+	margin: 0 1px 10px 0;
 	color: #B2A98F;
 	text-decoration: none;
 	display: block;

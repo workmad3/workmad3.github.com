@@ -50,14 +50,44 @@
       <div id="body" class="span-24 last">
         <h1 class="span-24 last">Home</h1>
 <div class="span-3">&nbsp;</div>
-<div id="content" class="span-17">
+<div id="content" class="span-15">
   Main content
 
 </div>
-<div id="right-column" class="span-4 last">
 
-</div>
-
+        <div id="right-menu" class="span-6 last">
+  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+  <script>
+    new TWTR.Widget({
+      version: 2,
+      type: 'profile',
+      rpp: 4,
+      interval: 6000,
+      width: 250,
+      height: 300,
+      theme: {
+        shell: {
+          background: '#333333',
+          color: '#ffffff'
+        },
+        tweets: {
+          background: '#000000',
+          color: '#ffffff',
+          links: '#4aed05'
+        }
+      },
+      features: {
+        scrollbar: true,
+        loop: false,
+        live: true,
+        hashtags: true,
+        timestamp: true,
+        avatars: false,
+        behavior: 'all'
+      }
+    }).render().setUser('workmad3').start();
+  </script>
+        </div>
       </div>
       <div id="footer" class="span-24 last">
         &copy; David Workman, 2010
