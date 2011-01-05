@@ -13,8 +13,8 @@ html, body {
   background-color: #4C453B;
 }
 
-h1, a:visited {
-  color: #261726;
+h1, a:visited, a {
+  color: #4C453B;
 }
 
 .container, h2 {
@@ -31,10 +31,6 @@ h1, a:visited {
 
 #footer {
   text-align: center;
-}
-
-a {
-  color: #B2A98F;
 }
 
 /*Menu styles from http://www.oswt.co.uk/css_menus/styles/Zeldmans%20DWWS%20menu/preview.html */

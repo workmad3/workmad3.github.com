@@ -7,7 +7,7 @@ title: News
   {% for news_item in site.categories.news %}
     <div class="span-17 last">
       <p><strong><a href="{{news_item.url}}">{{ news_item.title }}</a></strong></p>
-      <p>{{news_item.content}}</p>
+      <p>{{ news_item.excerpt }}</p>
     </div>
   {% endfor %}
 </div>
