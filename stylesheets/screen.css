@@ -33,6 +33,16 @@ h1, a:visited, a {
   text-align: center;
 }
 
+#post_header {
+  padding: 3px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-color: #261726;
+  color: #B2A98F;
+  font-size: 10px;
+  font-style: italic;
+}
+
 /*Menu styles from http://www.oswt.co.uk/css_menus/styles/Zeldmans%20DWWS%20menu/preview.html */
 #topmenu {
 	margin: 0px 0 0 0px;
