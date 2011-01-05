@@ -1,0 +1,5 @@
+---
+layout: news
+title: Started work on new site
+---
+Started work on this new site. It is being built using Jekyll, along with the blueprint CSS grid framework.
