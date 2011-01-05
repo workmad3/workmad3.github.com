@@ -33,7 +33,7 @@ h1, a:visited, a {
   text-align: center;
 }
 
-#post_header {
+#post_header, .post_footer {
   padding: 3px;
   border-radius: 5px;
   -moz-border-radius: 5px;

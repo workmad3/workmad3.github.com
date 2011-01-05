@@ -8,7 +8,10 @@ title: News
     <div class="span-17 last">
       <p><strong><a href="{{news_item.url}}">{{ news_item.title }}</a></strong></p>
       <p>{{ news_item.excerpt }}</p>
-      <p class="date">Posted on: {{ news_item.date | date: "%d %B, %Y" }}</p>
+      <div class="post_footer span-5 last">
+        Posted on: {{ news_item.date | date: "%d %B, %Y" }}<br/>
+        <a href="{{news_item.url}}#disqus_thread"></a>
+      </div>
     </div>
   {% endfor %}
 </div>
