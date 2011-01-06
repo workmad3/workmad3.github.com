@@ -1,6 +1,7 @@
 ---
 layout: post
 excerpt: Making good progress on new site
+disable_comments: true
 title: Progess on site rebuild
 ---
 Progress is proceeding quickly on my site rebuild. Already gotten blog and news feed up, along with twitter integration and a lot of styling.
