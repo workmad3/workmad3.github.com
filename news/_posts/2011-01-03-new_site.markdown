@@ -2,6 +2,6 @@
 layout: post 
 title: Started work on new site
 disable_comments: true
-excerpt: Stared work on this new site...
+excerpt: Started work on this new site...
 ---
 Started working on new site. It's going to be built with Jekyll and Blueprint, and will contain my blog, a news feed and some bio stuff about me (Yes, it's all about me :))
