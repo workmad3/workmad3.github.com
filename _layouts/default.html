@@ -43,6 +43,11 @@
               {% else %}
                 <li><a href="/blog.html">Blog</a>
               {% endif %}
+              {% if page.title == "Projects" %}
+                <li class="current"><a href="/projects.html">Projects</a></li>
+              {% else %}
+                <li><a href="/projects.html">Projects</a></li>
+              {% endif %}
               {% if page.title == "CV" %}
                 <li class="current"><a href="/cv.html">CV</a></li>
               {% else %}
@@ -73,6 +78,16 @@
             <ul>
             {% for n in site.categories.news limit: 5 %}
               <li><a href="{{ n.url }}">{{ n.title }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div id="current_projects" class="span-3 last">
+            Current Projects:<br/>
+            <ul>
+            {% for project in site.categories.projects %}
+              {% if project.current %}
+                <li><a href="{{project.url}}">{{project.title}}</a></li>
+              {% endif %}
             {% endfor %}
             </ul>
           </div>

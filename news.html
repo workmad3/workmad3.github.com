@@ -4,16 +4,8 @@ title: News
 ---
 <h2 class="span-17 last">All News</h2>
 <div id="news" class="span-17 last">
-  {% for news_item in site.categories.news %}
-    <div class="span-17 last">
-      <p><strong><a href="{{news_item.url}}">{{ news_item.title }}</a></strong></p>
-      <p>{{ news_item.excerpt }}</p>
-      <div class="post_footer span-5 last">
-        Posted on: {{ news_item.date | date: "%d %B, %Y" }}<br/>
-        <a href="{{news_item.url}}#disqus_thread"></a>
-      </div>
-    </div>
-  {% endfor %}
+  {% assign posts = site.categories.news %}
+  {% include post_list.html %}
 </div>
 
 
