@@ -33,6 +33,20 @@ h1, a:visited, a {
   text-align: center;
 }
 
+.post {
+  margin-bottom: 5px;
+}
+
+.post p {
+  margin: 2px;
+  padding: 0;
+}
+
+.divider {
+  margin-bottom: 5px;
+  border-bottom: 1px solid #CCCBAC;
+}
+
 #post_header, .post_footer {
   padding: 3px;
   border-radius: 5px;
