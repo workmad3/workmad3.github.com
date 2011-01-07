@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>workmad3.com - Omniauth and Devise</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" /> 
+    <link rel="alternate" title="Blog posts - RSS" type="application/rss+xml" href="/rss" />
+    <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/screen.css" />
+    <link media="print" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/print.css" />
+    <!--[if lt IE 8]>
+      <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/ie.css" />
+    <![endif]-->
+    <link media="screen" rel="stylesheet" type="text/css" href="/stylesheets/screen.css" />
+    <link media="print" rel="stylesheet" type="text/css" href="/stylesheets/print.css" />
+    <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/highlight.css" />
+    <link rel="start" href="http://www.workmad3.com" title="workmad3.com"/>
+  </head>
+  <body>
+    <div class="container">
+      <div id="header" class="span-24 last">
+        <div id="logo" class="span-3">
+          <a href="/"><img src="/images/logo.png" width="110px" height="110px" /></a>
+        </div>
+        <div id="masthead" class="span-21 last">
+          <div id="banner" class="span-21 last">
+            <a href="/"><img src="/images/banner.png" width="820px" height="90px" /></a>
+          </div>
+          <div id="topmenu" class="span-21 last">
+            <ul id="topmenu">
+              
+                <li><a href="/index.html">Home</a></li>
+              
+              
+                <li><a href="/news.html">News</a></li>
+              
+              
+                <li><a href="/blog.html">Blog</a>
+              
+              
+                <li><a href="/projects.html">Projects</a></li>
+              
+              
+                <li><a href="/cv.html">CV</a></li>
+              
+              
+                <li><a href="/about.html">About Me</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="body" class="span-24 last">
+        <h1>Omniauth and Devise</h1>
+        <div id="left-menu" class="span-3 last">
+          <div id="last_5_blog" class="span-3 last">
+            Latest Blog posts:<br/>
+            <ul>
+            
+              <li><a href="/blog/2011/01/06/omniauth_and_devise.html">Omniauth and Devise</a></li>
+            
+              <li><a href="/blog/2011/01/05/new_year_new_site.html">New Year, New Site</a></li>
+            
+            </ul>
+          </div>
+          <div id="last_5_news" class="span-3 last">
+            Latest News:<br/>
+            <ul>
+            
+              <li><a href="/news/2011/01/05/new_site_progress.html">Progess on site rebuild</a></li>
+            
+              <li><a href="/news/2011/01/03/new_site.html">Started work on new site</a></li>
+            
+            </ul>
+          </div>
+          <div id="current_projects" class="span-3 last">
+            Current Projects:<br/>
+            <ul>
+            
+              
+                <li><a href="/projects/2010/06/01/fishdelish.html">Fishdelish</a></li>
+              
+            
+            </ul>
+          </div>
+        </div>
+        <div id="content" class="span-15">
+            <div id="post" class="span-15 last">
+    <div id="post_header" class="span-15 last">
+      Author: David Workman, posted on 06 January, 2011 
+    </div>
+    <div class="span-1">&nbsp</div>
+    <div id="post_content" class="span-13 last">
+      <p>One of the last implementation parts of the fishdelish project is a self-publishing mechanism. Having gotten to the start of this task, I realised that it needed
+some form of user identification. With the recent gawker security breach on my mind, I was very much in the mood for an external solution which led me to Omniauth
+and the latest branch of Devise which contains strategies for its use.</p>
+
+<p>One key part of integrating such a sign-on mechanism to me is to make sure it is testable and then to test it, which in turn led me to find out how to test with
+third party services in omniauth. This is where Devise comes in handy, as it provides test modes and stubs for the omniauth library that allows you to test that
+your integration is correct while stubbing out the third party calls that would otherwise prove problematic (after all, you don't want to actually authenticate
+against facebook with your tests).</p>
+
+<p>The first part is to get Cucumber set up for these tests. Drawing on the <a href="https://github.com/plataformatec/devise/wiki/OmniAuth:-Testing">Devise omniauth documentation</a>,
+I came up with the following:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="no">Devise</span><span class="o">::</span><span class="no">OmniAuth</span><span class="o">.</span><span class="n">test_mode!</span>
+
+<span class="no">ACCESS_TOKEN</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:access_token</span> <span class="o">=&gt;</span> <span class="s2">&quot;plataformatec&quot;</span>
+<span class="p">}</span>
+
+<span class="no">FACEBOOK_INFO</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s1">&#39;12345&#39;</span><span class="p">,</span>
+  <span class="ss">:link</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://facebook.com/user_example&#39;</span><span class="p">,</span>
+  <span class="ss">:email</span> <span class="o">=&gt;</span> <span class="s1">&#39;user@example.com&#39;</span><span class="p">,</span>
+  <span class="ss">:first_name</span> <span class="o">=&gt;</span> <span class="s1">&#39;User&#39;</span><span class="p">,</span>
+  <span class="ss">:last_name</span> <span class="o">=&gt;</span> <span class="s1">&#39;Example&#39;</span><span class="p">,</span>
+  <span class="ss">:website</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://blog.plataformatec.com.br&#39;</span>
+<span class="p">}</span>
+
+<span class="no">Before</span> <span class="k">do</span>
+  <span class="no">Devise</span><span class="o">::</span><span class="no">OmniAuth</span><span class="o">.</span><span class="n">short_circuit_authorizers!</span>
+  <span class="no">Devise</span><span class="o">::</span><span class="no">OmniAuth</span><span class="o">.</span><span class="n">stub!</span><span class="p">(</span><span class="ss">:facebook</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/oauth/access_token&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="o">[</span><span class="mi">200</span><span class="p">,</span> <span class="p">{},</span> <span class="no">ACCESS_TOKEN</span><span class="o">.</span><span class="n">to_json</span><span class="o">]</span> <span class="p">}</span>
+    <span class="n">b</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/me?access_token=plataformatec&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="o">[</span><span class="mi">200</span><span class="p">,</span> <span class="p">{},</span> <span class="no">FACEBOOK_INFO</span><span class="o">.</span><span class="n">to_json</span><span class="o">]</span> <span class="p">}</span>
+  <span class="k">end</span>  
+<span class="k">end</span>
+
+<span class="no">After</span> <span class="k">do</span> <span class="o">|</span><span class="n">scenario</span><span class="o">|</span>
+  <span class="no">Devise</span><span class="o">::</span><span class="no">OmniAuth</span><span class="o">.</span><span class="n">unshort_circuit_authorizers!</span>
+  <span class="no">Devise</span><span class="o">::</span><span class="no">OmniAuth</span><span class="o">.</span><span class="n">reset_stubs!</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+
+<p>Basically, you start by putting OmniAuth into test mode, and then short-circuit and stub the authorizers before each scenario and reset them afterwards (to return them to a clean slate).</p>
+
+<p>You can then login by following the link to the facebook/twitter/open-id login on your page in your Scenario. Once you've done the authentication callbacks for your chosen service(s) then the step
+will pass and you can continue as an authenticated user. Magic!</p>
+
+    </div>
+  </div>
+  
+    <div id="disqus_thread" class="span-15 last"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+        </div>
+        <div id="right-menu" class="span-6 last">
+  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+  <script>
+    new TWTR.Widget({
+      version: 2,
+      type: 'profile',
+      rpp: 4,
+      interval: 6000,
+      width: 250,
+      height: 300,
+      theme: {
+        shell: {
+          background: '#261726',
+          color: '#B2A98F'
+        },
+        tweets: {
+          background: '#181916',
+          color: '#CCCBAC',
+          links: '#4C453B'
+        }
+      },
+      features: {
+        scrollbar: true,
+        loop: false,
+        live: true,
+        hashtags: true,
+        timestamp: true,
+        avatars: false,
+        behavior: 'all'
+      }
+    }).render().setUser('workmad3').start();
+  </script>
+        </div>
+      </div>
+      <div id="footer" class="span-24 last">
+        &copy; David Workman, 2010
+      </div>
+    </div>
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/application.js"></script>
+    <script src="http://disqus.com/forums/workmad3/embed.js"></script>
+    <script src="http://disqus.com/forums/workmad3/count.js"></script>
+  </body>
+</html>
