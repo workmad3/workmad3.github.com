@@ -68,6 +68,8 @@
             Latest News:<br/>
             <ul>
             
+              <li><a href="/news/2011/01/06/highlighting.html">Code highlighting</a></li>
+            
               <li><a href="/news/2011/01/05/new_site_progress.html">Progess on site rebuild</a></li>
             
               <li><a href="/news/2011/01/03/new_site.html">Started work on new site</a></li>
@@ -138,7 +140,7 @@ I came up with the following:</p>
 <p>Basically, you start by putting OmniAuth into test mode, and then short-circuit and stub the authorizers before each scenario and reset them afterwards (to return them to a clean slate).</p>
 
 <p>You can then login by following the link to the facebook/twitter/open-id login on your page in your Scenario. Once you've done the authentication callbacks for your chosen service(s) then the step
-will pass and you can continue as an authenticated user. Magic!</p>
+will pass and you can continue as an authenticated user. Magic! Next, I'll drill down into the implementation of the callback handlers and work out how to test them through RSpec.</p>
 
     </div>
   </div>
