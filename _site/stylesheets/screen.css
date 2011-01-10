@@ -13,7 +13,7 @@ html, body {
   background-color: #4C453B;
 }
 
-h1, a:visited, a {
+h1, a, a:hover, a:visited, a:active {
   color: #4C453B;
 }
 
