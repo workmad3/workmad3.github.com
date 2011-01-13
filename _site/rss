@@ -4,8 +4,20 @@
     <title>workmad3.com</title>
     <link>http://www.workmad3.com/</link>
     <description>Feed for workmad3.com</description>
-    <lastBuildDate>Thu, 13 Jan 2011 12:23:35 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jan 2011 12:28:32 GMT</lastBuildDate>
     
+			<item>
+				<title>RSS feed added</title>
+				<description>&lt;p&gt;This removes an item from the todo list by adding an RSS feed to the page suitable for feed readers.&lt;/p&gt;
+
+&lt;p&gt;The RSS feed combines projects, news and blog posts and makes use of the RSS category element within the feed.&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/news/2011/01/13/rss_feed.html</link>
+        
+        <category>news</category>
+        
+			</item>
+		
 			<item>
 				<title>Omniauth and Devise</title>
 				<description>&lt;p&gt;One of the last implementation parts of the fishdelish project is a self-publishing mechanism. Having gotten to the start of this task, I realised that it needed
