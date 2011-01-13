@@ -8,7 +8,7 @@ permalink: /rss
     <title>workmad3.com</title>
     <link>http://www.workmad3.com/</link>
     <description>Feed for workmad3.com</description>
-    <lastBuildDate>{{site.time | date: "%a, %d %b %Y" }}</lastBuildDate>
+    <lastBuildDate>{{site.time | date: "%a, %d %b %Y %H:%M:%S %Z" }}</lastBuildDate>
     {% for post in site.posts %}
 			<item>
 				<title>{{ post.title }}</title>
