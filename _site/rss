@@ -4,7 +4,7 @@
     <title>workmad3.com blog</title>
     <link>http://www.workmad3.com/blog.html</link>
     <description>Feed for workmad3.com blog</description>
-    <lastBuildDate>2011-01-13 12:06:39 +0000</lastBuildDate>
+    <lastBuildDate>2011-01-13 12:09:58 +0000</lastBuildDate>
     
 			<item>
 				<title>Omniauth and Devise</title>
@@ -81,7 +81,7 @@ and my hypothesis is that now I've moved the blog onto my own domain I'll be mor
     <title>workmad3.com news</title>
     <link>http://www.workmad3.com/news.html</link>
     <description>Feed for workmad3.com news</description>
-    <lastBuildDate>2011-01-13 12:06:39 +0000</lastBuildDate>
+    <lastBuildDate>2011-01-13 12:09:58 +0000</lastBuildDate>
     
       <item>
         <title>Code highlighting</title>
@@ -124,7 +124,7 @@ richleland on github (thanks richleland!) and it works great but doesn't really 
     <title>workmad3.com project</title>
     <link>http://www.workmad3.com/projects.html</link>
     <description>Feed for workmad3.com projects</description>
-    <lastBuildDate>2011-01-13 12:06:39 +0000</lastBuildDate>
+    <lastBuildDate>2011-01-13 12:09:58 +0000</lastBuildDate>
     
       <item>
         <title>Fishdelish</title>
