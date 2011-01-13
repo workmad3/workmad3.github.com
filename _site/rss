@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>workmad3.com</title>
+    <link>http://www.workmad3.com</link>
+    
+			<item>
+				<title>Omniauth and Devise</title>
+				<description>&lt;p&gt;One of the last implementation parts of the fishdelish project is a self-publishing mechanism. Having gotten to the start of this task, I realised that it needed
+some form of user identification. With the recent gawker security breach on my mind, I was very much in the mood for an external solution which led me to Omniauth
+and the latest branch of Devise which contains strategies for its use.&lt;/p&gt;
+
+&lt;p&gt;One key part of integrating such a sign-on mechanism to me is to make sure it is testable and then to test it, which in turn led me to find out how to test with
+third party services in omniauth. This is where Devise comes in handy, as it provides test modes and stubs for the omniauth library that allows you to test that
+your integration is correct while stubbing out the third party calls that would otherwise prove problematic (after all, you don't want to actually authenticate
+against facebook with your tests).&lt;/p&gt;
+
+&lt;p&gt;The first part is to get Cucumber set up for these tests. Drawing on the &lt;a href=&quot;https://github.com/plataformatec/devise/wiki/OmniAuth:-Testing&quot;&gt;Devise omniauth documentation&lt;/a&gt;,
+I came up with the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Devise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OmniAuth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_mode!&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;ACCESS_TOKEN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:access_token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;plataformatec&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;FACEBOOK_INFO&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;12345&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:link&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://facebook.com/user_example&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;user@example.com&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:first_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;User&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:last_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Example&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:website&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://blog.plataformatec.com.br&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Before&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Devise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OmniAuth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;short_circuit_authorizers!&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Devise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OmniAuth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stub!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:facebook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/oauth/access_token&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ACCESS_TOKEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;/me?access_token=plataformatec&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FACEBOOK_INFO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;After&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scenario&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Devise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OmniAuth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unshort_circuit_authorizers!&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Devise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OmniAuth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reset_stubs!&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Basically, you start by putting OmniAuth into test mode, and then short-circuit and stub the authorizers before each scenario and reset them afterwards (to return them to a clean slate).&lt;/p&gt;
+
+&lt;p&gt;You can then login by following the link to the facebook/twitter/open-id login on your page in your Scenario. Once you've done the authentication callbacks for your chosen service(s) then the step
+will pass and you can continue as an authenticated user. Magic! Next, I'll drill down into the implementation of the callback handlers and work out how to test them through RSpec.&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/blog/2011/01/06/omniauth_and_devise.html</link>
+			</item>
+		
+			<item>
+				<title>Code highlighting</title>
+				<description>&lt;p&gt;With the new blog post, I found the need to test out pygments as part of jekyll. The code highlighting works great, but I need to seriously
+consider the styling. Currently, I'm using &lt;a href=&quot;https://github.com/richleland/pygments-css/blob/master/default.css&quot;&gt;this&lt;/a&gt; default stylesheet from
+richleland on github (thanks richleland!) and it works great but doesn't really fit in with the rest of the site.&lt;/p&gt;
+
+&lt;p&gt;So my list of things to do has another item on it. The work never stops.&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/news/2011/01/06/highlighting.html</link>
+			</item>
+		
+			<item>
+				<title>New Year, New Site</title>
+				<description>&lt;p&gt;Well, I finally decided to get my site sorted out for the new year and the result is what you're seeing in front of you.&lt;/p&gt;
+
+&lt;p&gt;For those interested in the boring technical details, this new site has been built using the static-site generator Jekyll, and I've styled it with the Blueprint CSS grid framework.
+The colour scheme is one I found that I liked in Kuler, the menu system is one I picked up from a free CSS menu site and I put it all together by hand.&lt;/p&gt;
+
+&lt;p&gt;The code and content is also hosted on github &lt;a href=&quot;http://github.com/workmad3/workmad3.com&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is all in aid of trying to produce a blog that I'll actually update. My previous attempts are &lt;a href=&quot;http://sharedillusions.blogspot.com&quot;&gt;Shared Illusions&lt;/a&gt; and &lt;a href=&quot;http://reflectivecoder.blogspot.com&quot;&gt;Reflective Coder&lt;/a&gt;
+and my hypothesis is that now I've moved the blog onto my own domain I'll be more driven to write content for it.&lt;/p&gt;
+
+&lt;p&gt;We'll see how that goes :)&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/blog/2011/01/05/new_year_new_site.html</link>
+			</item>
+		
+			<item>
+				<title>Progess on site rebuild</title>
+				<description>&lt;p&gt;Progress is proceeding quickly on my site rebuild. Already gotten blog and news feed up, along with twitter integration and a lot of styling.&lt;/p&gt;
+
+&lt;p&gt;Still todo is:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;finish off styling&lt;/li&gt;
+&lt;li&gt;pagination of news and blog items&lt;/li&gt;
+&lt;li&gt;images&lt;/li&gt;
+&lt;li&gt;content&lt;/li&gt;
+&lt;li&gt;RSS feed (and potentially atom feed)&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+				<link>http://www.workmad3.com/news/2011/01/05/new_site_progress.html</link>
+			</item>
+		
+			<item>
+				<title>Started work on new site</title>
+				<description>&lt;p&gt;Started working on new site. It's going to be built with Jekyll and Blueprint, and will contain my blog, a news feed and some bio stuff about me (Yes, it's all about me :))&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/news/2011/01/03/new_site.html</link>
+			</item>
+		
+			<item>
+				<title>Fishdelish</title>
+				<description>&lt;p&gt;This is my current project at work. It is a linked data project aimed at converting the &lt;a href=&quot;http://fishbase.org&quot;&gt;Fishbase&lt;/a&gt; database into linked RDF data.&lt;/p&gt;
+
+&lt;p&gt;The project is being developed with &lt;a href=&quot;http://hedtek.com&quot;&gt;hedtek&lt;/a&gt; in partnership with &lt;a href=&quot;http://cs.manchester.ac.uk&quot;&gt;the University of Manchester CS department&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;More information can be found at the &lt;a href=&quot;http://fishdelish.cs.man.ac.uk&quot;&gt;project blog&lt;/a&gt;&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/projects/2010/06/01/fishdelish.html</link>
+			</item>
+		
+  </channel>
+</rss>
