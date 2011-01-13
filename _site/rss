@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>workmad3.com blog</title>
-    <link>http://www.workmad3.com/blog.html</link>
-    <description>Feed for workmad3.com blog</description>
-    <lastBuildDate>2011-01-13 12:09:58 +0000</lastBuildDate>
+    <title>workmad3.com</title>
+    <link>http://www.workmad3.com/</link>
+    <description>Feed for workmad3.com</description>
+    <lastBuildDate>Thu, 13</lastBuildDate>
     
 			<item>
 				<title>Omniauth and Devise</title>
@@ -57,6 +57,23 @@ I came up with the following:&lt;/p&gt;
 will pass and you can continue as an authenticated user. Magic! Next, I'll drill down into the implementation of the callback handlers and work out how to test them through RSpec.&lt;/p&gt;
 </description>
 				<link>http://www.workmad3.com/blog/2011/01/06/omniauth_and_devise.html</link>
+        
+        <category>blog</category>
+        
+			</item>
+		
+			<item>
+				<title>Code highlighting</title>
+				<description>&lt;p&gt;With the new blog post, I found the need to test out pygments as part of jekyll. The code highlighting works great, but I need to seriously
+consider the styling. Currently, I'm using &lt;a href=&quot;https://github.com/richleland/pygments-css/blob/master/default.css&quot;&gt;this&lt;/a&gt; default stylesheet from
+richleland on github (thanks richleland!) and it works great but doesn't really fit in with the rest of the site.&lt;/p&gt;
+
+&lt;p&gt;So my list of things to do has another item on it. The work never stops.&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/news/2011/01/06/highlighting.html</link>
+        
+        <category>news</category>
+        
 			</item>
 		
 			<item>
@@ -74,29 +91,14 @@ and my hypothesis is that now I've moved the blog onto my own domain I'll be mor
 &lt;p&gt;We'll see how that goes :)&lt;/p&gt;
 </description>
 				<link>http://www.workmad3.com/blog/2011/01/05/new_year_new_site.html</link>
+        
+        <category>blog</category>
+        
 			</item>
 		
-  </channel>
-  <channel>
-    <title>workmad3.com news</title>
-    <link>http://www.workmad3.com/news.html</link>
-    <description>Feed for workmad3.com news</description>
-    <lastBuildDate>2011-01-13 12:09:58 +0000</lastBuildDate>
-    
-      <item>
-        <title>Code highlighting</title>
-        <description>&lt;p&gt;With the new blog post, I found the need to test out pygments as part of jekyll. The code highlighting works great, but I need to seriously
-consider the styling. Currently, I'm using &lt;a href=&quot;https://github.com/richleland/pygments-css/blob/master/default.css&quot;&gt;this&lt;/a&gt; default stylesheet from
-richleland on github (thanks richleland!) and it works great but doesn't really fit in with the rest of the site.&lt;/p&gt;
-
-&lt;p&gt;So my list of things to do has another item on it. The work never stops.&lt;/p&gt;
-</description>
-        <link>http://www.workmad3.com/news/2011/01/06/highlighting.html</link>
-      </item>
-    
-      <item>
-        <title>Progess on site rebuild</title>
-        <description>&lt;p&gt;Progress is proceeding quickly on my site rebuild. Already gotten blog and news feed up, along with twitter integration and a lot of styling.&lt;/p&gt;
+			<item>
+				<title>Progess on site rebuild</title>
+				<description>&lt;p&gt;Progress is proceeding quickly on my site rebuild. Already gotten blog and news feed up, along with twitter integration and a lot of styling.&lt;/p&gt;
 
 &lt;p&gt;Still todo is:&lt;/p&gt;
 
@@ -109,33 +111,35 @@ richleland on github (thanks richleland!) and it works great but doesn't really 
 &lt;/ul&gt;
 
 </description>
-        <link>http://www.workmad3.com/news/2011/01/05/new_site_progress.html</link>
-      </item>
-    
-      <item>
-        <title>Started work on new site</title>
-        <description>&lt;p&gt;Started working on new site. It's going to be built with Jekyll and Blueprint, and will contain my blog, a news feed and some bio stuff about me (Yes, it's all about me :))&lt;/p&gt;
+				<link>http://www.workmad3.com/news/2011/01/05/new_site_progress.html</link>
+        
+        <category>news</category>
+        
+			</item>
+		
+			<item>
+				<title>Started work on new site</title>
+				<description>&lt;p&gt;Started working on new site. It's going to be built with Jekyll and Blueprint, and will contain my blog, a news feed and some bio stuff about me (Yes, it's all about me :))&lt;/p&gt;
 </description>
-        <link>http://www.workmad3.com/news/2011/01/03/new_site.html</link>
-      </item>
-    
-  </channel>
-  <channel>
-    <title>workmad3.com project</title>
-    <link>http://www.workmad3.com/projects.html</link>
-    <description>Feed for workmad3.com projects</description>
-    <lastBuildDate>2011-01-13 12:09:58 +0000</lastBuildDate>
-    
-      <item>
-        <title>Fishdelish</title>
-        <description>&lt;p&gt;This is my current project at work. It is a linked data project aimed at converting the &lt;a href=&quot;http://fishbase.org&quot;&gt;Fishbase&lt;/a&gt; database into linked RDF data.&lt;/p&gt;
+				<link>http://www.workmad3.com/news/2011/01/03/new_site.html</link>
+        
+        <category>news</category>
+        
+			</item>
+		
+			<item>
+				<title>Fishdelish</title>
+				<description>&lt;p&gt;This is my current project at work. It is a linked data project aimed at converting the &lt;a href=&quot;http://fishbase.org&quot;&gt;Fishbase&lt;/a&gt; database into linked RDF data.&lt;/p&gt;
 
 &lt;p&gt;The project is being developed with &lt;a href=&quot;http://hedtek.com&quot;&gt;hedtek&lt;/a&gt; in partnership with &lt;a href=&quot;http://cs.manchester.ac.uk&quot;&gt;the University of Manchester CS department&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;More information can be found at the &lt;a href=&quot;http://fishdelish.cs.man.ac.uk&quot;&gt;project blog&lt;/a&gt;&lt;/p&gt;
 </description>
-        <link>http://www.workmad3.com/projects/2010/06/01/fishdelish.html</link>
-      </item>
-    
+				<link>http://www.workmad3.com/projects/2010/06/01/fishdelish.html</link>
+        
+        <category>projects</category>
+        
+			</item>
+		
   </channel>
 </rss>
