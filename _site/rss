@@ -4,8 +4,34 @@
     <title>workmad3.com</title>
     <link>http://www.workmad3.com/</link>
     <description>Feed for workmad3.com</description>
-    <lastBuildDate>Sun, 16 Jan 2011 12:06:11 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jan 2011 23:00:37 GMT</lastBuildDate>
     
+			<item>
+				<title>Updates to site content</title>
+				<description>&lt;p&gt;Small update to site content. Added section content for CV and about me.&lt;/p&gt;
+
+&lt;p&gt;Also did a minor structure update today to make use of HTML5 layout tags. Replaced major layout tags with equivalent &lt;nav&gt;, &lt;header&gt;, &lt;footer&gt; and &lt;section&gt; elements.&lt;/p&gt;
+
+&lt;p&gt;Still TODO:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Graphics for top banner&lt;/li&gt;
+&lt;li&gt;Landing page content&lt;/li&gt;
+&lt;li&gt;Styling of code highlight sections&lt;/li&gt;
+&lt;li&gt;Update post layout to make use of HTML5 tags&lt;/li&gt;
+&lt;li&gt;Consider any other widgets for the right or left panels&lt;/li&gt;
+&lt;li&gt;Make sure pagination works on the blog, news and project pages&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Progressing slowly but surely. I also still have another blog post to write about devise and omniauth that I intend to do over the next week&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/news/2011/01/16/content-updates.html</link>
+        
+        <category>news</category>
+        
+			</item>
+		
 			<item>
 				<title>RSS feed added</title>
 				<description>&lt;p&gt;This removes an item from the todo list by adding an RSS feed to the page suitable for feed readers.&lt;/p&gt;
