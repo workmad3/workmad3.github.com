@@ -19,16 +19,16 @@
   </head>
   <body>
     <div class="container">
-      <div id="header" class="span-24 last">
-        <div id="logo" class="span-3">
+      <header class="span-24 last">
+        <section id="logo" class="span-3">
           <a href="/"><img src="/images/logo.png" width="110px" height="110px" /></a>
-        </div>
-        <div id="masthead" class="span-21 last">
-          <div id="banner" class="span-21 last">
+        </section>
+        <section id="masthead" class="span-21 last">
+          <section id="banner" class="span-21 last">
             <a href="/"><img src="/images/banner.png" width="820px" height="90px" /></a>
-          </div>
-          <div id="topmenu" class="span-21 last">
-            <ul id="topmenu">
+          </section>
+          <nav id="topmenu" class="span-21 last">
+            <ul>
               
                 <li><a href="/index.html">Home</a></li>
               
@@ -48,48 +48,54 @@
                 <li><a href="/about.html">About Me</a></li>
               
             </ul>
-          </div>
-        </div>
-      </div>
-      <div id="body" class="span-24 last">
+          </nav>
+        </section>
+      </header>
+      <section id="body" class="span-24 last">
         <h1>Fishdelish</h1>
-        <div id="left-menu" class="span-3">
-          <div id="last_5_blog" class="span-3 last">
+        <section id="left-menu" class="span-3">
+          <section id="last_5_blog" class="span-3 last">
             Latest Blog posts:<br/>
-            <ul>
-            
-              <li><a href="/blog/2011/01/06/omniauth_and_devise.html">Omniauth and Devise</a></li>
-            
-              <li><a href="/blog/2011/01/05/new_year_new_site.html">New Year, New Site</a></li>
-            
-            </ul>
-          </div>
-          <div id="last_5_news" class="span-3 last">
+            <nav>
+              <ul>
+              
+                <li><a href="/blog/2011/01/06/omniauth_and_devise.html">Omniauth and Devise</a></li>
+              
+                <li><a href="/blog/2011/01/05/new_year_new_site.html">New Year, New Site</a></li>
+              
+              </ul>
+            </nav>
+          </section>
+          <section id="last_5_news" class="span-3 last">
             Latest News:<br/>
-            <ul>
-            
-              <li><a href="/news/2011/01/13/rss_feed.html">RSS feed added</a></li>
-            
-              <li><a href="/news/2011/01/06/highlighting.html">Code highlighting</a></li>
-            
-              <li><a href="/news/2011/01/05/new_site_progress.html">Progess on site rebuild</a></li>
-            
-              <li><a href="/news/2011/01/03/new_site.html">Started work on new site</a></li>
-            
-            </ul>
-          </div>
-          <div id="current_projects" class="span-3 last">
+            <nav>
+              <ul>
+              
+                <li><a href="/news/2011/01/13/rss_feed.html">RSS feed added</a></li>
+              
+                <li><a href="/news/2011/01/06/highlighting.html">Code highlighting</a></li>
+              
+                <li><a href="/news/2011/01/05/new_site_progress.html">Progess on site rebuild</a></li>
+              
+                <li><a href="/news/2011/01/03/new_site.html">Started work on new site</a></li>
+              
+              </ul>
+            </nav>
+          </section>
+          <section id="current_projects" class="span-3 last">
             Current Projects:<br/>
-            <ul>
-            
+            <nav>
+              <ul>
               
-                <li><a href="/projects/2010/06/01/fishdelish.html">Fishdelish</a></li>
+                
+                  <li><a href="/projects/2010/06/01/fishdelish.html">Fishdelish</a></li>
+                
               
-            
-            </ul>
-          </div>
-        </div>
-        <div id="content" class="span-15">
+              </ul>
+            </nav>
+          </section>
+        </section>
+        <section id="content" class="span-15">
             <div id="post" class="span-15 last">
     <div id="post_header" class="span-15 last">
       Author: David Workman, posted on 01 June, 2010 
@@ -110,48 +116,50 @@
     <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
   
 
-        </div>
-        <div id="right-menu" class="span-6 last">
-  <script src="http://widgets.twimg.com/j/2/widget.js"></script>
-  <script>
-    new TWTR.Widget({
-      version: 2,
-      type: 'profile',
-      rpp: 4,
-      interval: 6000,
-      width: 250,
-      height: 300,
-      theme: {
-        shell: {
-          background: '#261726',
-          color: '#B2A98F'
-        },
-        tweets: {
-          background: '#181916',
-          color: '#CCCBAC',
-          links: '#4C453B'
-        }
-      },
-      features: {
-        scrollbar: true,
-        loop: false,
-        live: true,
-        hashtags: true,
-        timestamp: true,
-        avatars: false,
-        behavior: 'all'
-      }
-    }).render().setUser('workmad3').start();
-  </script>
-        </div>
-      </div>
-      <div id="footer" class="span-24 last">
+        </section>
+        <section id="right-menu" class="span-6 last">
+          <div id="twitter"></div>
+        </section>
+      </section>
+      <footer class="span-24 last">
         &copy; David Workman, 2010
-      </div>
+      </footer>
     </div>
     <script src="/javascripts/jquery.min.js"></script>
     <script src="/javascripts/application.js"></script>
     <script src="http://disqus.com/forums/workmad3/embed.js"></script>
     <script src="http://disqus.com/forums/workmad3/count.js"></script>
+		<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+		<script>
+			new TWTR.Widget({
+        id: 'twitter',
+				version: 2,
+				type: 'profile',
+				rpp: 4,
+				interval: 6000,
+				width: 250,
+				height: 300,
+				theme: {
+					shell: {
+						background: '#261726',
+						color: '#B2A98F'
+					},
+					tweets: {
+						background: '#181916',
+						color: '#CCCBAC',
+						links: '#4C453B'
+					}
+				},
+				features: {
+					scrollbar: true,
+					loop: false,
+					live: true,
+					hashtags: true,
+					timestamp: true,
+					avatars: false,
+					behavior: 'all'
+				}
+			}).render().setUser('workmad3').start();
+		</script>
   </body>
 </html>
