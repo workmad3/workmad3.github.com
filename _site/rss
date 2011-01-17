@@ -4,13 +4,13 @@
     <title>workmad3.com</title>
     <link>http://www.workmad3.com/</link>
     <description>Feed for workmad3.com</description>
-    <lastBuildDate>Sun, 16 Jan 2011 23:00:37 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Jan 2011 08:42:56 GMT</lastBuildDate>
     
 			<item>
 				<title>Updates to site content</title>
 				<description>&lt;p&gt;Small update to site content. Added section content for CV and about me.&lt;/p&gt;
 
-&lt;p&gt;Also did a minor structure update today to make use of HTML5 layout tags. Replaced major layout tags with equivalent &lt;nav&gt;, &lt;header&gt;, &lt;footer&gt; and &lt;section&gt; elements.&lt;/p&gt;
+&lt;p&gt;Also did a minor structure update today to make use of HTML5 layout tags. Replaced major layout tags with equivalent &amp;lt;nav&amp;gt;, &amp;lt;header&amp;gt;, &amp;lt;footer&amp;gt; and &amp;lt;section&amp;gt; elements.&lt;/p&gt;
 
 &lt;p&gt;Still TODO:&lt;/p&gt;
 

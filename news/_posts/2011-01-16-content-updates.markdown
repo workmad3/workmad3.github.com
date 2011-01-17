@@ -6,7 +6,7 @@ disable_comments: true
 ---
 Small update to site content. Added section content for CV and about me. 
 
-Also did a minor structure update today to make use of HTML5 layout tags. Replaced major layout tags with equivalent <nav>, <header>, <footer> and <section> elements.
+Also did a minor structure update today to make use of HTML5 layout tags. Replaced major layout tags with equivalent &lt;nav&gt;, &lt;header&gt;, &lt;footer&gt; and &lt;section&gt; elements.
 
 Still TODO:
 
