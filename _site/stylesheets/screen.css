@@ -73,8 +73,9 @@ footer {
   float: right;
 	margin: 0;
 	padding: 0;
-	list-style-type: none;
-	text-align: center;
+  width: 100%;
+  list-style-type: none;
+	text-align: justify;
 }
 
 #topmenu ul li {
@@ -82,18 +83,23 @@ footer {
 	float: left;
 	text-align: center;
 	padding: 0;
-	margin: 0;
+  width: 10%;
+  margin: 0;
+	margin-right: 8%;
 }
 
+#topmenu ul li.last {
+  margin-right: 0;
+}
 #topmenu ul li a {
 	background: #261726;
-	width: 78px;
+	width: 100%;
 	height: 18px;
-  border-radius: 9px;
-  -moz-border-radius: 9px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
 	border: 1px solid #B2A98F;
 	padding: 0;
-	margin: 0 1px 10px 0;
+	margin: 0 0 10px;
 	color: #B2A98F;
 	text-decoration: none;
 	display: block;
