@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>workmad3.com - Why Test?</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta name="robots" content="index,follow"/>
+    <meta name="mssmarttagspreventparsing" content="true"/>
+    <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" /> 
+    <link rel="alternate" title="RSS" type="application/rss+xml" href="/rss" />
+    <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/screen.css" />
+    <link media="print" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/print.css" />
+    <!--[if lt IE 8]>
+      <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/ie.css" />
+    <![endif]-->
+    <link media="screen" rel="stylesheet" type="text/css" href="/stylesheets/screen.css" />
+    <link media="print" rel="stylesheet" type="text/css" href="/stylesheets/print.css" />
+    <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/highlight.css" />
+    <link rel="start" href="http://www.workmad3.com" title="workmad3.com"/>
+  </head>
+  <body>
+    <div class="container">
+      <header class="span-24 last">
+        <section id="logo" class="span-3">
+          <a href="/"><img src="/images/logo.png" width="110" height="110" alt="" /></a>
+        </section>
+        <section id="masthead" class="span-21 last">
+          <section id="banner" class="span-21 last">
+						<a href="/"><img src="/images/banner.png" width="830" height="90" alt="" /></a>
+          </section>
+          <nav id="topmenu" class="span-21 last">
+            <ul>
+              
+                <li><a href="/index.html">Home</a></li>
+              
+              
+                <li><a href="/news.html">News</a></li>
+              
+              
+                <li><a href="/blog.html">Blog</a>
+              
+              
+                <li><a href="/projects.html">Projects</a></li>
+              
+              
+                <li><a href="/cv.html">CV</a></li>
+              
+              
+                <li><a href="/about.html">About Me</a></li>
+              
+            </ul>
+          </nav>
+        </section>
+      </header>
+      <section id="body" class="span-24 last">
+        <h1>Why Test?</h1>
+        <section id="left-menu" class="span-3">
+          <section id="last_5_blog" class="span-3 last">
+            Latest Blog posts:<br/>
+            <nav>
+              <ul>
+              
+                <li><a href="/blog/2011/01/18/why_test.html">Why Test?</a></li>
+              
+                <li><a href="/blog/2011/01/06/omniauth_and_devise.html">Omniauth and Devise</a></li>
+              
+                <li><a href="/blog/2011/01/05/new_year_new_site.html">New Year, New Site</a></li>
+              
+              </ul>
+            </nav>
+          </section>
+          <section id="last_5_news" class="span-3 last">
+            Latest News:<br/>
+            <nav>
+              <ul>
+              
+                <li><a href="/news/2011/01/16/content-updates.html">Updates to site content</a></li>
+              
+                <li><a href="/news/2011/01/13/rss_feed.html">RSS feed added</a></li>
+              
+                <li><a href="/news/2011/01/06/highlighting.html">Code highlighting</a></li>
+              
+                <li><a href="/news/2011/01/05/new_site_progress.html">Progess on site rebuild</a></li>
+              
+                <li><a href="/news/2011/01/03/new_site.html">Started work on new site</a></li>
+              
+              </ul>
+            </nav>
+          </section>
+          <section id="current_projects" class="span-3 last">
+            Current Projects:<br/>
+            <nav>
+              <ul>
+              
+                
+                  <li><a href="/projects/2010/06/01/fishdelish.html">Fishdelish</a></li>
+                
+              
+              </ul>
+            </nav>
+          </section>
+        </section>
+        <section id="content" class="span-15">
+            <div id="post" class="span-15 last">
+    <div id="post_header" class="span-15 last">
+      Author: David Workman, posted on 18 January, 2011 
+    </div>
+    <div class="span-1">&nbsp</div>
+    <div id="post_content" class="span-13 last">
+      <p>A question that frequently crops up with newcomers to various communities that encourage strong testing and test-first practices is "Why should I test?". They are referring (hopefully) to the concept of writing automated tests that, on the surface, double the amount of code you're writing.
+If they're just referring to why should they bother to check that what they are doing works, compiles, does what they expect, and doesn't fire a death-ray at the moon (unless they are working on moon-death-rays that is) then there is a much deeper problem.</p>
+
+<p>So why should you write automated tests for your code? And why should you write them before you write the code that will pass the test? Obviously, if you aren't convinced of the first answer then you won't be happy with answers to the second one so I'll address that one first.</p>
+
+<h2>Why write automated tests?</h2>
+
+<p>Well, the first thing to note is that you are probably already testing to some extent. I'm talking about the times when you compile your code and run it to make sure the brilliant new factorial function you just wrote does calculate a factorial and not just throw out random numbers.
+So what do you do? You probably bring it up in some way that you can call the method and throw some values at it and check that the values are correct, probably by manually working them out. And then, you throw all that work away. When you rewrite the function (because you realised that there's
+a way to do it that's 20 times faster), you either have to repeat all that work, or you decide that it must be right after all, it worked before didn't it? Of course, you could just not test at all, but then you don't actually know your code works. As you build more and more on top of your factorial
+function, there will always be a bit of doubt that it isn't working quite right. And then you get a phone call at 2a.m. telling you to get in and fix a bug that just caused the entire banking system of the world to crash and burn and civilization as we know it has ended (or not... I've yet to
+come across a factorial function quite <strong>that</strong> important. But it might happen)</p>
+
+<p>To contrast, the case with an automated test is that you write the test after the first run through and verify it. The test gives you a 'yes/no' answer for if the function calculates factorials. You've likely calculated a few simple cases manually still, but the important difference is that
+they are now recorded in an executable fashion. When you rewrite the function this time, you don't need to repeat the testing or not bother verifying your changes, you just re-run the same test and it should still tell you that the code is calculating factorials (but hopefully the test runs
+quicker :) )</p>
+
+<p>It should be obvious here that automated tests aren't actually requiring you to do more work. They just give you a way to record what <em>you should be doing anyway</em>, namely verifying your assumptions that the code you just wrote does what you say it should. Every passing test is another
+verification that you can write code, that the code you write does what you tell it to and that when you change or add code, it still does what you expected. Now, you could be writing your tests in test scripts that someone checks periodically, or writing expected outcomes in comments,
+or any other of a few hundred ways of recording your initial results for when you need to re-test later. However, if the record isn't executable (as an automated test is) then you'll still need to re-run the test manually, which will take time. And you'll need to recheck the results
+manually, which will take time and is error prone (especially when comparing string outputs. Two letters mixed up are easily missed by a mere human, but a computer will always pick up on the error).</p>
+
+<p>So you've recorded your assumptions and you can execute them whenever you want to give yourself that little pat on the back that says 'Yes, I can do my job, see this green bar is telling me so' (if the green bar <strong>does</strong> talk to you, turn off your speakers. If that doesn't help, see a
+psychiatrist). There is another important thing happening here though - you're double-checking your code. After all, you have written the same thing in two different ways. Far from being a waste, this is a very important thing to do. Most people have probably heard the old carpenter's
+mantra 'Measure twice, cut once'. Well, you've just measured twice. If either measurement is out, the test will fail and you'll work out whether it's because the test is wrong or the code is wrong. If you had just code, you'd have nothing to compare it to and when (not if) a problem
+occurs you can't tell because you have no second measurement to act as a reference point. Obviously, tests without code are pointless so having just them isn't much good (unless you know the tests are correct anyway... and then you have an interesting challenge in rebuilding the code
+they were testing)</p>
+
+<p>So, now I've convinced you that writing automated tests is good (or you're just reading on because you want to see if my writing gets any worse), I'll go onto the case for testing first</p>
+
+<h2>Why test first?</h2>
+
+<p>So you're happilly writing your code, and then writing some tests to make sure it works as expected, and someone comes up to you and says "You're doing it wrong! You should write the test before the code it's testing". To most people, this is counter-intuitive and sounds crazy (I know my wife
+thinks this) but it does bring a lot of benefits, which I'll try and lay out here as the reasons you should be doing Test-First Development.</p>
+
+<p>Firstly, test-first makes you stop and think about the code you're going to write. You have an explicit step where you have to put down the keyboard, step back and say 'OK, what is this code going to do that I can test?'. Now, hopefully you do actually do this most of the time but if you're like
+me then you will find yourself, on occasion, jumping into code and just hacking it out without any real thought going into what you're writing or what direction you're going. Having an explicit check before writing new code just reels you in and reminds you that, hey, a bit of thought before
+churning out code like a madman is a Good Thing&trade;</p>
+
+<p>Next, by writing the test first (and running it) then you know that the test fails. More importantly, when you have a test that fails, write some code and then the test passes, then you know that the code you wrote is what made it pass. If you write the test after the code then you are lacking
+this important verification and you simply <em>don't know</em> if the test you wrote would pass without the code. And if you find the test would have passed, then what is that code you just wrote actually doing? Is it actually important? Can you remove it safely, or is some other test that you wrote even
+further down the line actually test this? If this is sounding confusing, it's nothing compared to the confusion of having tests that aren't testing what they say (and you think) they should be testing.</p>
+
+<p>Thirdly (and finally for me here), it helps to stop you writing code that you can't test. This is coupled partly with the first point but I feel it stands alone. A lot of people who start with just automated testing find themselves having just written some code and they just can't (easily)
+write test for it. There are many reasons, such as it requires a lot of expensive setup that just isn't feasible or they can't get the test input into it without hacking the code to pieces. Sometimes you just end up with something that doesn't really return an output, it just manipulates
+some other object (and that leads to mocks, which is a subject for other times and places). However, by reversing the process and always thinking about how to test code before you write it, you invariably end up with code that you can actually test. And as long as you can test it, you
+can change it more easily (because you know when you break it). And code that is more easily changable is more flexible and less coupled to the rest of the system. Low coupling and flexibility are two things that are almost always present in designs that are classed as 'good' and test-first development
+is one way to achieve them with very little actual overhead.</p>
+
+<h2>TL;DR Summary</h2>
+
+<p>For those that don't like reading too much (I can be quite verbose) the main points are:</p>
+
+<ol>
+<li>Automated testing isn't much extra work. Mostly it moves implicit testing into an explicit step</li>
+<li>Automated testing removes work down the line from when tests were recorded and had to be manually followed, or aren't recorded at all</li>
+<li>Test first gives you explicit times to think about code</li>
+<li>Test first provides you with a way to verify the test itself works</li>
+<li>Test first is a way to achieve flexible designs with low coupling</li>
+</ol>
+
+
+<p>So why don't you test?</p>
+
+    </div>
+  </div>
+  
+    <div id="disqus_thread" class="span-15 last"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+
+        </section>
+        <section id="right-menu" class="span-6 last">
+          <div id="twitter"></div>
+        </section>
+      </section>
+      <footer class="span-24 last">
+        &copy; David Workman, 2010
+      </footer>
+    </div>
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/application.js"></script>
+    <script src="http://disqus.com/forums/workmad3/embed.js"></script>
+    <script src="http://disqus.com/forums/workmad3/count.js"></script>
+		<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+		<script>
+			new TWTR.Widget({
+        id: 'twitter',
+				version: 2,
+				type: 'profile',
+				rpp: 4,
+				interval: 6000,
+				width: 250,
+				height: 300,
+				theme: {
+					shell: {
+						background: '#261726',
+						color: '#B2A98F'
+					},
+					tweets: {
+						background: '#181916',
+						color: '#CCCBAC',
+						links: '#4C453B'
+					}
+				},
+				features: {
+					scrollbar: true,
+					loop: false,
+					live: true,
+					hashtags: true,
+					timestamp: true,
+					avatars: false,
+					behavior: 'all'
+				}
+			}).render().setUser('workmad3').start();
+		</script>
+  </body>
+</html>
