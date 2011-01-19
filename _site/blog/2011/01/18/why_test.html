@@ -124,9 +124,11 @@ they are now recorded in an executable fashion. When you rewrite the function th
 quicker :) )</p>
 
 <p>It should be obvious here that automated tests aren't actually requiring you to do more work. They just give you a way to record what <em>you should be doing anyway</em>, namely verifying your assumptions that the code you just wrote does what you say it should. Every passing test is another
-verification that you can write code, that the code you write does what you tell it to and that when you change or add code, it still does what you expected. Now, you could be writing your tests in test scripts that someone checks periodically, or writing expected outcomes in comments,
+verification that you can write code, that the code you write does what you tell it to and that when you change or add code, it still does what you expected.</p>
+
+<p>Now, you could be writing your tests in test scripts that someone checks periodically, or writing expected outcomes in comments,
 or any other of a few hundred ways of recording your initial results for when you need to re-test later. However, if the record isn't executable (as an automated test is) then you'll still need to re-run the test manually, which will take time. And you'll need to recheck the results
-manually, which will take time and is error prone (especially when comparing string outputs. Two letters mixed up are easily missed by a mere human, but a computer will always pick up on the error).</p>
+manually, which will take even more time and is error prone (especially when comparing string outputs. Two letters mixed up are easily missed by a mere human, but a computer will always pick up on the error).</p>
 
 <p>So you've recorded your assumptions and you can execute them whenever you want to give yourself that little pat on the back that says 'Yes, I can do my job, see this green bar is telling me so' (if the green bar <strong>does</strong> talk to you, turn off your speakers. If that doesn't help, see a
 psychiatrist). There is another important thing happening here though - you're double-checking your code. After all, you have written the same thing in two different ways. Far from being a waste, this is a very important thing to do. Most people have probably heard the old carpenter's
@@ -138,21 +140,21 @@ they were testing)</p>
 
 <h2>Why test first?</h2>
 
-<p>So you're happilly writing your code, and then writing some tests to make sure it works as expected, and someone comes up to you and says "You're doing it wrong! You should write the test before the code it's testing". To most people, this is counter-intuitive and sounds crazy (I know my wife
+<p>So you're happily writing your code, and then writing some tests to make sure it works as expected, and someone comes up to you and says "You're doing it wrong! You should write the test before the code it's testing". To most people, this is counter-intuitive and sounds crazy (I know my wife
 thinks this) but it does bring a lot of benefits, which I'll try and lay out here as the reasons you should be doing Test-First Development.</p>
 
-<p>Firstly, test-first makes you stop and think about the code you're going to write. You have an explicit step where you have to put down the keyboard, step back and say 'OK, what is this code going to do that I can test?'. Now, hopefully you do actually do this most of the time but if you're like
+<p>Firstly, test-first makes you stop and think about the code you're going to write. You have an explicit step where you have to put down the keyboard, step back and say 'OK, what is this code going to do that I can test?'. Now, hopefully you actually do this most of the time but if you're like
 me then you will find yourself, on occasion, jumping into code and just hacking it out without any real thought going into what you're writing or what direction you're going. Having an explicit check before writing new code just reels you in and reminds you that, hey, a bit of thought before
 churning out code like a madman is a Good Thing&trade;</p>
 
-<p>Next, by writing the test first (and running it) then you know that the test fails. More importantly, when you have a test that fails, write some code and then the test passes, then you know that the code you wrote is what made it pass. If you write the test after the code then you are lacking
+<p>Next, by writing the test first (and running it) then you know that the test fails. More importantly, when you have a test that fails, write some code, re-run the test and it passes, then you know that the code you wrote is what made it pass. If you write the test after the code then you are lacking
 this important verification and you simply <em>don't know</em> if the test you wrote would pass without the code. And if you find the test would have passed, then what is that code you just wrote actually doing? Is it actually important? Can you remove it safely, or is some other test that you wrote even
-further down the line actually test this? If this is sounding confusing, it's nothing compared to the confusion of having tests that aren't testing what they say (and you think) they should be testing.</p>
+further down the line actually testing this? If this is sounding confusing, it's nothing compared to the confusion of having tests that aren't testing what they say (and you think) they should be testing.</p>
 
 <p>Thirdly (and finally for me here), it helps to stop you writing code that you can't test. This is coupled partly with the first point but I feel it stands alone. A lot of people who start with just automated testing find themselves having just written some code and they just can't (easily)
 write test for it. There are many reasons, such as it requires a lot of expensive setup that just isn't feasible or they can't get the test input into it without hacking the code to pieces. Sometimes you just end up with something that doesn't really return an output, it just manipulates
 some other object (and that leads to mocks, which is a subject for other times and places). However, by reversing the process and always thinking about how to test code before you write it, you invariably end up with code that you can actually test. And as long as you can test it, you
-can change it more easily (because you know when you break it). And code that is more easily changable is more flexible and less coupled to the rest of the system. Low coupling and flexibility are two things that are almost always present in designs that are classed as 'good' and test-first development
+can change it more easily, because you know when you break it and code that is more easily changeable is more flexible and less coupled to the rest of the system. Low coupling and flexibility are two things that are almost always present in designs that are classed as 'good' and test-first development
 is one way to achieve them with very little actual overhead.</p>
 
 <h2>TL;DR Summary</h2>
