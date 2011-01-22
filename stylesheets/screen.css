@@ -29,6 +29,14 @@ h1, a, a:hover, a:visited, a:active {
   background-color: #181916;
 }
 
+.front-image {
+  width:400px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
 footer {
   text-align: center;
 }
