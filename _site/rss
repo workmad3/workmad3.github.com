@@ -4,8 +4,21 @@
     <title>workmad3.com</title>
     <link>http://www.workmad3.com/</link>
     <description>Feed for workmad3.com</description>
-    <lastBuildDate>Sat, 22 Jan 2011 14:24:48 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jan 2011 21:13:12 GMT</lastBuildDate>
     
+			<item>
+				<title>Fixed Facebook Integration</title>
+				<description>&lt;p&gt;Fairly obviously, the comments login integration with facebook is fixed. This was a simple config setting with Facebook (it helps when using their API keys to set the site's URL).&lt;/p&gt;
+
+&lt;p&gt;Also, some minor updates to the layout - the right hand twitter feed has been shunted out a bit more, giving a bit more content space and a more deliberate look to the overhang. This was from some feedback receieved over IRC,
+thanks SpaceGhostC2C :)&lt;/p&gt;
+</description>
+				<link>http://www.workmad3.com/news/2011/01/22/fixed-facebook-login.html</link>
+        
+        <category>news</category>
+        
+			</item>
+		
 			<item>
 				<title>Why Test?</title>
 				<description>&lt;p&gt;A question that frequently crops up with newcomers to various communities that encourage strong testing and test-first practices is &quot;Why should I test?&quot;. They are referring (hopefully) to the concept of writing automated tests that, on the surface, double the amount of code you're writing.
