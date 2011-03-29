@@ -13,11 +13,6 @@ lsi:         true
 pygments:    true
 markdown:    rdiscount
 permalink:   date
-paginate: true
-paginate: 10
-paginate_files:
-  - blog.html
-  - news.html
 
 exclude:
   - README.markdown
