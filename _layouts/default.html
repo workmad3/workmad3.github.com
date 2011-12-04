@@ -7,108 +7,66 @@
     <meta name="mssmarttagspreventparsing" content="true"/>
     <link rel="shortcut icon" href="/images/favicon.gif" type="image/gif" /> 
     <link rel="alternate" title="RSS" type="application/rss+xml" href="http://feeds.feedburner.com/Workmad3com" />
-    <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/screen.css" />
-    <link media="print" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/print.css" />
-    <!--[if lt IE 8]>
-      <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/blueprint/ie.css" />
-    <![endif]-->
-    <link media="screen" rel="stylesheet" type="text/css" href="/stylesheets/screen.css" />
-    <link media="print" rel="stylesheet" type="text/css" href="/stylesheets/print.css" />
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
     <link media="screen, projection" rel="stylesheet" type="text/css" href="/stylesheets/highlight.css" />
     <link rel="start" href="http://www.workmad3.com" title="workmad3.com"/>
   </head>
   <body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container">
+          <a class="brand" href="/">workmad3.com</a>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/news.html">News</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/cv.html">CV</a></li>
+            <li><a href="/about.html">About Me</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="container">
-      <header class="span-24 last">
-        <section id="logo" class="span-3">
-          <a href="/"><img src="/images/logo.png" width="110" height="110" alt="" /></a>
-        </section>
-        <section id="masthead" class="span-21 last">
-          <section id="banner" class="span-21 last">
-						<a href="/"><img src="/images/banner.png" width="830" height="90" alt="" /></a>
-          </section>
-          <nav id="topmenu" class="span-21 last">
+      <div class="row">
+        <h1>{{ page.title }}</h1>
+        <div id="left-menu" class="span4">
+          Latest Blog posts:<br/>
+          <nav>
             <ul>
-              {% if page.title == "Home" %}
-                <li class="current"><a href="/index.html">Home</a></li>
-              {% else %}
-                <li><a href="/index.html">Home</a></li>
-              {% endif %}
-              {% if page.title == "News" %}
-                <li class="current"><a href="/news.html">News</a></li>
-              {%else%}
-                <li><a href="/news.html">News</a></li>
-              {%endif%}
-              {% if page.title == "Blog" %}
-                <li class="current"><a href="/blog.html">Blog</a></li>
-              {% else %}
-                <li><a href="/blog.html">Blog</a>
-              {% endif %}
-              {% if page.title == "Projects" %}
-                <li class="current"><a href="/projects.html">Projects</a></li>
-              {% else %}
-                <li><a href="/projects.html">Projects</a></li>
-              {% endif %}
-              {% if page.title == "CV" %}
-                <li class="current"><a href="/cv.html">CV</a></li>
-              {% else %}
-                <li><a href="/cv.html">CV</a></li>
-              {% endif %}
-              {% if page.title == "About Me" %}
-                <li class="current last"><a href="/about.html">About Me</a></li>
-              {% else %}
-                <li class="last"><a href="/about.html">About Me</a></li>
-              {%endif%}
+            {% for p in site.categories.blog limit: 5 %}
+              <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
             </ul>
           </nav>
-        </section>
-      </header>
-      <section id="body" class="span-24 last">
-        <h1>{{ page.title }}</h1>
-        <section id="left-menu" class="span-3">
-          <section id="last_5_blog" class="span-3 last">
-            Latest Blog posts:<br/>
-            <nav>
-              <ul>
-              {% for p in site.categories.blog limit: 5 %}
-                <li><a href="{{ p.url }}">{{ p.title }}</a></li>
-              {% endfor %}
-              </ul>
-            </nav>
-          </section>
-          <section id="last_5_news" class="span-3 last">
-            Latest News:<br/>
-            <nav>
-              <ul>
-              {% for n in site.categories.news limit: 5 %}
-                <li><a href="{{ n.url }}">{{ n.title }}</a></li>
-              {% endfor %}
-              </ul>
-            </nav>
-          </section>
-          <section id="current_projects" class="span-3 last">
-            Current Projects:<br/>
-            <nav>
-              <ul>
-              {% for project in site.categories.projects %}
-                {% if project.current %}
-                  <li><a href="{{project.url}}">{{project.title}}</a></li>
-                {% endif %}
-              {% endfor %}
-              </ul>
-            </nav>
-          </section>
-        </section>
-        <section id="content" class="span-17">
+          Latest News:<br/>
+          <nav>
+            <ul>
+            {% for n in site.categories.news limit: 5 %}
+              <li><a href="{{ n.url }}">{{ n.title }}</a></li>
+            {% endfor %}
+            </ul>
+          </nav>
+          Current Projects:<br/>
+          <nav>
+            <ul>
+            {% for project in site.categories.projects %}
+              {% if project.current %}
+                <li><a href="{{project.url}}">{{project.title}}</a></li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </nav>
+        </div>
+        <div id="content" class="span12">
           {{ content }}
-        </section>
-        <section id="right-menu" class="span-4 last">
-          <div id="twitter"></div>
-        </section>
-      </section>
-      <footer class="span-24 last">
-        &copy; David Workman, 2010
-      </footer>
+        </div>
+      </div>
+      <div class="row">
+        <footer class="span16">
+          &copy; David Workman, 2010
+        </footer>
+      </div>
     </div>
     <script src="/javascripts/jquery.min.js"></script>
     <script src="/javascripts/application.js"></script>
