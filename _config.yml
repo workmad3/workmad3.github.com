@@ -1,38 +1,109 @@
-safe:        false
-auto:        false
-server:      false
-server_port: 4000
+# ----------------------- #
+#      Main Configs       #
+# ----------------------- #
 
-source:      .
-destination: ./_site
-plugins:     ./_plugins
-url: http://www.workmad3.com
+url: http://yoursite.com
+title: My Octopress Blog
+subtitle: A blogging framework for hackers.
+author: Your Name
+simple_search: http://google.com/search
+description:
 
-future:      true
-lsi:         true
-pygments:    true
-markdown:    rdiscount
-permalink:   date
+# Default date format is "ordinal" (resulting in "July 22nd 2007")
+# You can customize the format as defined in
+# http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
+# Additionally, %o will give you the ordinal representation of the day
+date_format: "ordinal"
 
-exclude:
-  - README.markdown
-  - Gemfile
-  - Gemfile.lock
+# RSS / Email (optional) subscription links (change if using something like Feedburner)
+subscribe_rss: /atom.xml
+subscribe_email:
+category_feeds: false
+# RSS feeds can list your email address if you like
+email:
 
-rdiscount:
-  extensions: []
+# ----------------------- #
+#    Jekyll & Plugins     #
+# ----------------------- #
 
-kramdown:
-  auto_ids: true,
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: false
-  
-  coderay:
-    coderay_wrap: div
-    coderay_line_numbers: inline
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: style
+# If publishing to a subdirectory as in http://site.com/project set 'root: /project'
+root: /
+permalink: /:year/:month/:day/:title/
+source: source
+destination: public
+plugins: plugins
+code_dir: downloads/code
+category_dir: blog/categories
+markdown: rdiscount
+pygments: false # Jekyll's default Python Pygments have been replaced by pygments.rb. Set to true to use Albino + Pythong Pygments
+
+paginate: 10          # Posts per page on the blog index
+pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
+recent_posts: 5       # Posts in the sidebar Recent Posts section
+excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_in_feed: false # Truncate excerpted articles in the atom feed
+permalink_label: "Permalink"
+permalink_label_feed: "&#9875; Permalink"
+linklog_marker: "&rarr;"
+linklog_marker_position: after
+linklog_marker_position_feed: after
+standard_post_marker:
+
+titlecase: true       # Converts page and post titles to titlecase
+
+# To change the layout's default sidebar Add a new sidebar source/_includes/sidebars/your_sidebar.html
+# then make changes below, eg. post_sidebar: your_sidebar.html
+blog_index_sidebar: blog_index_default.html
+page_sidebar: page_default.html
+post_sidebar: post_default.html
+
+# ----------------------- #
+#   3rd Party Settings    #
+# ----------------------- #
+
+# Javascript social buttons often generate lots of http requests and may track your viewer's browsing history
+# Show respect for privacy and bandwidth with simple links for Twitter, Facebook and Google Plus.
+respectfully_social: true
+
+# Github repositories
+github_user:
+github_repo_count: 0
+github_show_profile_link: true
+github_skip_forks: true
+
+# Twitter
+twitter_user:
+twitter_tweet_count: 4
+twitter_show_replies: false
+twitter_follow_button: true
+twitter_show_follower_count: false
+twitter_tweet_button: true
+
+# Google +1
+google_plus_one: false
+google_plus_one_size: medium
+
+# Google Plus Profile
+# Hidden: No visible button, just add author information to search results
+google_plus_user:
+google_plus_hidden: false
+google_plus_image_size: 32
+
+# Pinboard
+pinboard_user:
+pinboard_count: 3
+
+# Delicious
+delicious_user:
+delicious_count: 3
+
+# Disqus Comments
+disqus_short_name:
+disqus_show_comment_count: false
+disqus_developer: 0
+
+# Google Analytics
+google_analytics_tracking_id:
+
+# Facebook Like
+facebook_like: false
