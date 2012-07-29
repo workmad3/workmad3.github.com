@@ -12,38 +12,10 @@ third party services in omniauth. This is where Devise comes in handy, as it pro
 your integration is correct while stubbing out the third party calls that would otherwise prove problematic (after all, you don't want to actually authenticate
 against facebook with your tests).
 
-The first part is to get Cucumber set up for these tests. Drawing on the [Devise omniauth documentation](https://github.com/plataformatec/devise/wiki/OmniAuth:-Testing), 
+The first part is to get Cucumber set up for these tests. Drawing on the [Devise omniauth documentation](https://github.com/plataformatec/devise/wiki/OmniAuth:-Testing),
 I came up with the following:
 
-{% highlight ruby %}
-Devise::OmniAuth.test_mode!
-
-ACCESS_TOKEN = {
-  :access_token => "plataformatec"
-}
-
-FACEBOOK_INFO = {
-  :id => '12345',
-  :link => 'http://facebook.com/user_example',
-  :email => 'user@example.com',
-  :first_name => 'User',
-  :last_name => 'Example',
-  :website => 'http://blog.plataformatec.com.br'
-}
-
-Before do
-  Devise::OmniAuth.short_circuit_authorizers!
-  Devise::OmniAuth.stub!(:facebook) do |b|
-    b.post('/oauth/access_token') { [200, {}, ACCESS_TOKEN.to_json] }
-    b.get('/me?access_token=plataformatec') { [200, {}, FACEBOOK_INFO.to_json] }
-  end  
-end
-
-After do |scenario|
-  Devise::OmniAuth.unshort_circuit_authorizers!
-  Devise::OmniAuth.reset_stubs!
-end
-{% endhighlight %}
+{% gist 3197207 omniauth.rb %}
 
 Basically, you start by putting OmniAuth into test mode, and then short-circuit and stub the authorizers before each scenario and reset them afterwards (to return them to a clean slate).
 
