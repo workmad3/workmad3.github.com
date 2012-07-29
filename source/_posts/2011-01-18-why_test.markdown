@@ -1,10 +1,14 @@
 ---
 layout: post
 title: Why Test?
-excerpt: A few reasons why you should be testing
+comments: true
+categories:
+- testing
+- ramble
 ---
 A question that frequently crops up with newcomers to various communities that encourage strong testing and test-first practices is "Why should I test?". They are referring (hopefully) to the concept of writing automated tests that, on the surface, double the amount of code you're writing.
 If they're just referring to why should they bother to check that what they are doing works, compiles, does what they expect, and doesn't fire a death-ray at the moon (unless they are working on moon-death-rays that is) then there is a much deeper problem.
+<!-- more -->
 
 So why should you write automated tests for your code? And why should you write them before you write the code that will pass the test? Obviously, if you aren't convinced of the first answer then you won't be happy with answers to the second one so I'll address that one first. 
 

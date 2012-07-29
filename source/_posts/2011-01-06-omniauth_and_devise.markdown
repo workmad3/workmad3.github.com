@@ -1,11 +1,16 @@
 ---
 layout: post
 title: Omniauth and Devise
-excerpt: Testing Omniauth and Devise integration 
+comments: true
+categories:
+- rails
+- omniauth
+- devise
 ---
 One of the last implementation parts of the fishdelish project is a self-publishing mechanism. Having gotten to the start of this task, I realised that it needed 
 some form of user identification. With the recent gawker security breach on my mind, I was very much in the mood for an external solution which led me to Omniauth
 and the latest branch of Devise which contains strategies for its use.
+<!-- more -->
 
 One key part of integrating such a sign-on mechanism to me is to make sure it is testable and then to test it, which in turn led me to find out how to test with 
 third party services in omniauth. This is where Devise comes in handy, as it provides test modes and stubs for the omniauth library that allows you to test that

@@ -1,9 +1,12 @@
 ---
 layout: post
 title: New Year, New Site
-excerpt: "Well, I finally decided to get my site sorted out for the new year..."
+comments: true
+categories:
+- news
 ---
 Well, I finally decided to get my site sorted out for the new year and the result is what you're seeing in front of you.
+<!-- more -->
 
 For those interested in the boring technical details, this new site has been built using the static-site generator Jekyll, and I've styled it with the Blueprint CSS grid framework. 
 The colour scheme is one I found that I liked in Kuler, the menu system is one I picked up from a free CSS menu site and I put it all together by hand.

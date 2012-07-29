@@ -1,9 +1,15 @@
 ---
 layout: post
 title: Where are the Level 3 Unix People?
+comments: true
+categories:
+- dreyfus
+- unix
+- ramble
 ---
 Lee Hambley(@codebeaker) at MagRails asked this question in his talk "Grown-up Web Application Deployment" and commented that the Unix community seemed to have a sharp divide between people who are experts and people who were advanced beginners (or, from the Dreyfus Model, level 2 and level 5 people). As had been mentioned previously, the best teachers come from the 'Level 3 - Competent' range as these are the people who know what they are doing and, more importantly, know how they are
 doing it. Dreyfus is a skill-based approach, so a user can be level 2 in one skill and level 5 in another.
+<!-- more -->
 
 So why does this sharp gap appear in 'Unix Skills'? Why does there appear to be a jump from Level 2 straight to Level 5? I think it may be tied into the question 'What is Unix Skill?', which is (when phrased like that) a very amorphous, ill-defined question. Is Unix skill defined by kernel hacking? By bash skills? By zsh skills? By skilled sed and awk use? Where is the skill that is 'Unix'?
 
