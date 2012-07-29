@@ -4,6 +4,7 @@ title: Dynamic method chains
 comments: true
 categories: 
 - rails 
+- gists
 - ruby 
 - irc-question
 ---
