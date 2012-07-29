@@ -1,8 +1,0 @@
----
-layout: post
-title: RSS feed added
-except: Added an RSS feed
----
-This removes an item from the todo list by adding an RSS feed to the page suitable for feed readers.
-
-The RSS feed combines projects, news and blog posts and makes use of the RSS category element within the feed.
