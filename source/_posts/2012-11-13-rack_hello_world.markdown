@@ -28,4 +28,4 @@ headers, and an array of body strings.
 
 The full project (which includes a Gemfile and Procfile for heroku) is:
 
-{% gist 2712594 %{
+{% gist 2712594 %}
