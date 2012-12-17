@@ -16,7 +16,7 @@ description: workmad3.com
 date_format: "ordinal"
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
-subscribe_rss: /atom.xml
+subscribe_rss: http://feeds.feedburner.com/workmad3
 subscribe_email:
 category_feeds: false
 # RSS feeds can list your email address if you like
@@ -103,7 +103,7 @@ disqus_show_comment_count: true
 disqus_developer: 0
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-10792414-1
 
 # Facebook Like
 facebook_like: true
