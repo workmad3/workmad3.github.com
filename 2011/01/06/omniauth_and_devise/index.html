@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Omniauth and Devise - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+  <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
+
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.workmad3.com/2011/01/06/omniauth_and_devise">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/workmad3" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+
+<!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10792414-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+   
+  <link href="/octopress-favicon.png" rel="icon">
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/workmad3" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.workmad3.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+  <li><a href="/pages/projects">Projects</a></li>
+  <li><a href="/pages/cv">CV</a></li>
+  <li><a href="/pages/about-me">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+
+
+
+
+
+
+
+
+
+
+
+<article class="hentry " role="article">
+  
+  <header>
+    <h1 class="entry-title">
+
+Omniauth and Devise
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-06T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.workmad3.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>One of the last implementation parts of the fishdelish project is a self-publishing mechanism. Having gotten to the start of this task, I realised that it needed
+some form of user identification. With the recent gawker security breach on my mind, I was very much in the mood for an external solution which led me to Omniauth
+and the latest branch of Devise which contains strategies for its use.</p>
+
+<!-- more -->
+
+
+<p>One key part of integrating such a sign-on mechanism to me is to make sure it is testable and then to test it, which in turn led me to find out how to test with
+third party services in omniauth. This is where Devise comes in handy, as it provides test modes and stubs for the omniauth library that allows you to test that
+your integration is correct while stubbing out the third party calls that would otherwise prove problematic (after all, you don&rsquo;t want to actually authenticate
+against facebook with your tests).</p>
+
+<p>The first part is to get Cucumber set up for these tests. Drawing on the <a href="https://github.com/plataformatec/devise/wiki/OmniAuth:-Testing">Devise omniauth documentation</a>,
+I came up with the following:</p>
+
+<div><script src='https://gist.github.com/3197207.js?file=omniauth.rb'></script>
+<noscript><pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;503 Connection timed out&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Error 503 Connection timed out&lt;/h1&gt;
+    &lt;p&gt;Connection timed out&lt;/p&gt;
+    &lt;h3&gt;Guru Meditation:&lt;/h3&gt;
+    &lt;p&gt;XID: 1245690120&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Varnish cache server&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></noscript></div>
+
+
+<p>Basically, you start by putting OmniAuth into test mode, and then short-circuit and stub the authorizers before each scenario and reset them afterwards (to return them to a clean slate).</p>
+
+<p>You can then login by following the link to the facebook/twitter/open-id login on your page in your Scenario. Once you&rsquo;ve done the authentication callbacks for your chosen service(s) then the step
+will pass and you can continue as an authenticated user. Magic! Next, I&rsquo;ll drill down into the implementation of the callback handlers and work out how to test them through RSpec.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-06T00:00:00+00:00" pubdate data-updated="true"></time>
+
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/devise/'>devise</a>, <a class='category' href='/blog/categories/omniauth/'>omniauth</a>, <a class='category' href='/blog/categories/rails/'>rails</a>
+  
+</span>
+
+
+
+      
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.workmad3.com/2011/01/06/omniauth_and_devise/" data-via="" data-counturl="http://www.workmad3.com/2011/01/06/omniauth_and_devise/" >Tweet</a>
+  
+  
+    
+      <a title="+1 on Google Plus" class="googleplus-share" href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.workmad3.com/2011/01/06/omniauth_and_devise/" target="_blank">+1</a>
+    
+  
+  
+    
+    <a title="Share on Facebook" class="facebook-share" href="http://www.facebook.com/sharer.php?u=http://www.workmad3.com/2011/01/06/omniauth_and_devise/" target="_blank">Share</a>
+    
+  
+  
+
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2011/01/05/new_year_new_site/" title="Previous Post: New Year, New Site">&laquo; New Year, New Site</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/01/18/why_test/" title="Next Post: Why Test?">Why Test? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+<section>
+  <h1>Comments</h1>
+  
+
+  
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  
+</section>
+
+</div>
+
+<aside class="sidebar">
+  
+    Included file 'sidebars/' not found in _includes directory
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'workmad3';
+			var disqus_developer = '0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.workmad3.com/2011/01/06/omniauth_and_devise/';
+        var disqus_url = 'http://www.workmad3.com/2011/01/06/omniauth_and_devise/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+</body>
+</html>

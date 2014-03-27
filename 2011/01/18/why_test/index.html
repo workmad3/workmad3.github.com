@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Why Test? - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+  <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
+
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.workmad3.com/2011/01/18/why_test">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/workmad3" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+
+<!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10792414-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+   
+  <link href="/octopress-favicon.png" rel="icon">
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/workmad3" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.workmad3.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+  <li><a href="/pages/projects">Projects</a></li>
+  <li><a href="/pages/cv">CV</a></li>
+  <li><a href="/pages/about-me">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+
+
+
+
+
+
+
+
+
+
+
+<article class="hentry " role="article">
+  
+  <header>
+    <h1 class="entry-title">
+
+Why Test?
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-18T00:00:00+00:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.workmad3.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>A question that frequently crops up with newcomers to various communities that encourage strong testing and test-first practices is &ldquo;Why should I test?&rdquo;. They are referring (hopefully) to the concept of writing automated tests that, on the surface, double the amount of code you&rsquo;re writing.
+If they&rsquo;re just referring to why should they bother to check that what they are doing works, compiles, does what they expect, and doesn&rsquo;t fire a death-ray at the moon (unless they are working on moon-death-rays that is) then there is a much deeper problem.</p>
+
+<!-- more -->
+
+
+<p>So why should you write automated tests for your code? And why should you write them before you write the code that will pass the test? Obviously, if you aren&rsquo;t convinced of the first answer then you won&rsquo;t be happy with answers to the second one so I&rsquo;ll address that one first.</p>
+
+<h2>Why write automated tests?</h2>
+
+<p>Well, the first thing to note is that you are probably already testing to some extent. I&rsquo;m talking about the times when you compile your code and run it to make sure the brilliant new factorial function you just wrote does calculate a factorial and not just throw out random numbers.
+So what do you do? You probably bring it up in some way that you can call the method and throw some values at it and check that the values are correct, probably by manually working them out. And then, you throw all that work away. When you rewrite the function (because you realised that there&rsquo;s
+a way to do it that&rsquo;s 20 times faster), you either have to repeat all that work, or you decide that it must be right after all, it worked before didn&rsquo;t it? Of course, you could just not test at all, but then you don&rsquo;t actually know your code works. As you build more and more on top of your factorial
+function, there will always be a bit of doubt that it isn&rsquo;t working quite right. And then you get a phone call at 2a.m. telling you to get in and fix a bug that just caused the entire banking system of the world to crash and burn and civilization as we know it has ended (or not&hellip; I&rsquo;ve yet to
+come across a factorial function quite <strong>that</strong> important. But it might happen)</p>
+
+<p>To contrast, the case with an automated test is that you write the test after the first run through and verify it. The test gives you a &lsquo;yes/no&rsquo; answer for if the function calculates factorials. You&rsquo;ve likely calculated a few simple cases manually still, but the important difference is that
+they are now recorded in an executable fashion. When you rewrite the function this time, you don&rsquo;t need to repeat the testing or not bother verifying your changes, you just re-run the same test and it should still tell you that the code is calculating factorials (but hopefully the test runs
+quicker :) )</p>
+
+<p>It should be obvious here that automated tests aren&rsquo;t actually requiring you to do more work. They just give you a way to record what <em>you should be doing anyway</em>, namely verifying your assumptions that the code you just wrote does what you say it should. Every passing test is another
+verification that you can write code, that the code you write does what you tell it to and that when you change or add code, it still does what you expected.</p>
+
+<p>Now, you could be writing your tests in test scripts that someone checks periodically, or writing expected outcomes in comments,
+or any other of a few hundred ways of recording your initial results for when you need to re-test later. However, if the record isn&rsquo;t executable (as an automated test is) then you&rsquo;ll still need to re-run the test manually, which will take time. And you&rsquo;ll need to recheck the results
+manually, which will take even more time and is error prone (especially when comparing string outputs. Two letters mixed up are easily missed by a mere human, but a computer will always pick up on the error).</p>
+
+<p>So you&rsquo;ve recorded your assumptions and you can execute them whenever you want to give yourself that little pat on the back that says &lsquo;Yes, I can do my job, see this green bar is telling me so&rsquo; (if the green bar <strong>does</strong> talk to you, turn off your speakers. If that doesn&rsquo;t help, see a
+psychiatrist). There is another important thing happening here though &ndash; you&rsquo;re double-checking your code. After all, you have written the same thing in two different ways. Far from being a waste, this is a very important thing to do. Most people have probably heard the old carpenter&rsquo;s
+mantra &lsquo;Measure twice, cut once&rsquo;. Well, you&rsquo;ve just measured twice. If either measurement is out, the test will fail and you&rsquo;ll work out whether it&rsquo;s because the test is wrong or the code is wrong. If you had just code, you&rsquo;d have nothing to compare it to and when (not if) a problem
+occurs you can&rsquo;t tell because you have no second measurement to act as a reference point. Obviously, tests without code are pointless so having just them isn&rsquo;t much good (unless you know the tests are correct anyway&hellip; and then you have an interesting challenge in rebuilding the code
+they were testing)</p>
+
+<p>So, now I&rsquo;ve convinced you that writing automated tests is good (or you&rsquo;re just reading on because you want to see if my writing gets any worse), I&rsquo;ll go onto the case for testing first</p>
+
+<h2>Why test first?</h2>
+
+<p>So you&rsquo;re happily writing your code, and then writing some tests to make sure it works as expected, and someone comes up to you and says &ldquo;You&rsquo;re doing it wrong! You should write the test before the code it&rsquo;s testing&rdquo;. To most people, this is counter-intuitive and sounds crazy (I know my wife
+thinks this) but it does bring a lot of benefits, which I&rsquo;ll try and lay out here as the reasons you should be doing Test-First Development.</p>
+
+<p>Firstly, test-first makes you stop and think about the code you&rsquo;re going to write. You have an explicit step where you have to put down the keyboard, step back and say &lsquo;OK, what is this code going to do that I can test?&rsquo;. Now, hopefully you actually do this most of the time but if you&rsquo;re like
+me then you will find yourself, on occasion, jumping into code and just hacking it out without any real thought going into what you&rsquo;re writing or what direction you&rsquo;re going. Having an explicit check before writing new code just reels you in and reminds you that, hey, a bit of thought before
+churning out code like a madman is a Good Thing&trade;</p>
+
+<p>Next, by writing the test first (and running it) then you know that the test fails. More importantly, when you have a test that fails, write some code, re-run the test and it passes, then you know that the code you wrote is what made it pass. If you write the test after the code then you are lacking
+this important verification and you simply <em>don&rsquo;t know</em> if the test you wrote would pass without the code. And if you find the test would have passed, then what is that code you just wrote actually doing? Is it actually important? Can you remove it safely, or is some other test that you wrote even
+further down the line actually testing this? If this is sounding confusing, it&rsquo;s nothing compared to the confusion of having tests that aren&rsquo;t testing what they say (and you think) they should be testing.</p>
+
+<p>Thirdly (and finally for me here), it helps to stop you writing code that you can&rsquo;t test. This is coupled partly with the first point but I feel it stands alone. A lot of people who start with just automated testing find themselves having just written some code and they just can&rsquo;t (easily)
+write test for it. There are many reasons, such as it requires a lot of expensive setup that just isn&rsquo;t feasible or they can&rsquo;t get the test input into it without hacking the code to pieces. Sometimes you just end up with something that doesn&rsquo;t really return an output, it just manipulates
+some other object (and that leads to mocks, which is a subject for other times and places). However, by reversing the process and always thinking about how to test code before you write it, you invariably end up with code that you can actually test. And as long as you can test it, you
+can change it more easily, because you know when you break it and code that is more easily changeable is more flexible and less coupled to the rest of the system. Low coupling and flexibility are two things that are almost always present in designs that are classed as &lsquo;good&rsquo; and test-first development
+is one way to achieve them with very little actual overhead.</p>
+
+<h2>TL;DR Summary</h2>
+
+<p>For those that don&rsquo;t like reading too much (I can be quite verbose) the main points are:</p>
+
+<ol>
+<li>Automated testing isn&rsquo;t much extra work. Mostly it moves implicit testing into an explicit step</li>
+<li>Automated testing removes work down the line from when tests were recorded and had to be manually followed, or aren&rsquo;t recorded at all</li>
+<li>Test first gives you explicit times to think about code</li>
+<li>Test first provides you with a way to verify the test itself works</li>
+<li>Test first is a way to achieve flexible designs with low coupling</li>
+</ol>
+
+
+<p>So why don&rsquo;t you test?</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-18T00:00:00+00:00" pubdate data-updated="true"></time>
+
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ramble/'>ramble</a>, <a class='category' href='/blog/categories/testing/'>testing</a>
+  
+</span>
+
+
+
+      
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.workmad3.com/2011/01/18/why_test/" data-via="" data-counturl="http://www.workmad3.com/2011/01/18/why_test/" >Tweet</a>
+  
+  
+    
+      <a title="+1 on Google Plus" class="googleplus-share" href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.workmad3.com/2011/01/18/why_test/" target="_blank">+1</a>
+    
+  
+  
+    
+    <a title="Share on Facebook" class="facebook-share" href="http://www.facebook.com/sharer.php?u=http://www.workmad3.com/2011/01/18/why_test/" target="_blank">Share</a>
+    
+  
+  
+
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2011/01/06/omniauth_and_devise/" title="Previous Post: Omniauth and Devise">&laquo; Omniauth and Devise</a>
+      
+      
+        <a class="basic-alignment right" href="/2011/10/17/level_3_unix/" title="Next Post: Where are the Level 3 Unix People?">Where are the Level 3 Unix People? &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+<section>
+  <h1>Comments</h1>
+  
+
+  
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  
+</section>
+
+</div>
+
+<aside class="sidebar">
+  
+    Included file 'sidebars/' not found in _includes directory
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'workmad3';
+			var disqus_developer = '0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.workmad3.com/2011/01/18/why_test/';
+        var disqus_url = 'http://www.workmad3.com/2011/01/18/why_test/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+</body>
+</html>

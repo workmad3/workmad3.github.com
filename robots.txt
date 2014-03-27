@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://www.workmad3.com/sitemap.xml 

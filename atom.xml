@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://www.workmad3.com/atom.xml" rel="self"/>
+  <link href="http://www.workmad3.com/"/>
+  <updated>2014-03-27T14:25:35+00:00</updated>
+  <id>http://www.workmad3.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[The Only Worthy Judgement]]></title>
+    <link href="http://www.workmad3.com/2012/12/09/worthy_judgement/"/>
+    <updated>2012-12-09T00:00:00+00:00</updated>
+    <id>http://www.workmad3.com/2012/12/09/worthy_judgement</id>
+    <content type="html"><![CDATA[<p>Is your own.</p>
+
+<!-- more -->
+
+
+<p>Anyone elses judgement is used primarily to validate your own
+judgement. This is frequently for one of two reasons:</p>
+
+<ul>
+<li>To confirm your suspicion that you have done good work.</li>
+<li>To confirm your suspicion that you have not done good work.</li>
+</ul>
+
+
+<p>The first seeks a confirmation bias and tends to discount or rationalise dissenting
+opinions and value judgements.</p>
+
+<p>The second one is more interesting. In this case, you have a general unease that
+something is not as &lsquo;good&rsquo; as you would desire and you are seeking to explore this
+unease and try to determine why you have this general feeling of unease.</p>
+
+<p>The first is ego-stroking and adds no real value, simply gaining approval for a
+value judgement already made. The second similarly is simply gaining confirmation
+of a value judgement that has already been made. In both cases, the worthy judgement
+is your own, which determines if you are satisfied or dissatisfied with the work.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Rules Are Not the Thing]]></title>
+    <link href="http://www.workmad3.com/2012/12/07/rules_not_the_thing/"/>
+    <updated>2012-12-07T00:00:00+00:00</updated>
+    <id>http://www.workmad3.com/2012/12/07/rules_not_the_thing</id>
+    <content type="html"><![CDATA[<p>There are many &lsquo;rules&rsquo; for programming and they have recently gained a
+renewed &lsquo;following&rsquo; that expounds their virtues as things to strive for.</p>
+
+<!-- more -->
+
+
+<p>These rules are not things to strive for. Your overall goal of working code that achieves
+a function is what you strive for. These rules are merely possible ways to achieve this
+goal. They are easily mistaken for the goal itself though, because the attributes that we
+actually want in our code make it look like these rules are in play. The reality tends to
+be much more post-hoc, with rules and guidelines being extracted as patterns from
+code that has already been identified as exhibiting desirable attributes.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rack Hello World]]></title>
+    <link href="http://www.workmad3.com/2012/11/13/rack_hello_world/"/>
+    <updated>2012-11-13T00:00:00+00:00</updated>
+    <id>http://www.workmad3.com/2012/11/13/rack_hello_world</id>
+    <content type="html"><![CDATA[<p>A minimal rack application, capable of being cloned from gist and deployed
+directly to heroku.</p>
+
+<!-- more -->
+
+
+<p>Rack is a fairly well known piece of the Ruby ecosystem nowadays, and is
+responsible for definining an interface between an HTTP request and your Ruby
+web app. It&rsquo;s a remarkably simple interface, which can be demonstrated in
+a single line:</p>
+
+<div><script src='https://gist.github.com/2712594.js?file=config.ru'></script>
+<noscript><pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;503 Connection timed out&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Error 503 Connection timed out&lt;/h1&gt;
+    &lt;p&gt;Connection timed out&lt;/p&gt;
+    &lt;h3&gt;Guru Meditation:&lt;/h3&gt;
+    &lt;p&gt;XID: 1245739872&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Varnish cache server&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></noscript></div>
+
+
+<p>This shows the important parts of a Rackup file &ndash; you run a rack application.
+A rack application is a ruby object that responds to a single method &lsquo;call&rsquo;.
+This method takes a single argument of the environment for the request
+(including all the information like the header, the url, query params, etc). The
+call method must return an array with 3 elements &ndash; the status code, a hash of
+headers, and an array of body strings.</p>
+
+<p>The full project (which includes a Gemfile and Procfile for heroku) is:</p>
+
+<div><script src='https://gist.github.com/2712594.js'></script>
+<noscript><pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;503 Connection timed out&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Error 503 Connection timed out&lt;/h1&gt;
+    &lt;p&gt;Connection timed out&lt;/p&gt;
+    &lt;h3&gt;Guru Meditation:&lt;/h3&gt;
+    &lt;p&gt;XID: 1245755164&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Varnish cache server&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></noscript></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress]]></title>
+    <link href="http://www.workmad3.com/2012/07/29/octopress/"/>
+    <updated>2012-07-29T00:00:00+01:00</updated>
+    <id>http://www.workmad3.com/2012/07/29/octopress</id>
+    <content type="html"><![CDATA[<p>Just did the most common event to happen on my blog &ndash; I did another redesign :)</p>
+
+<!-- more -->
+
+
+<p>This time though, I didn&rsquo;t worry about doing it from scratch. Instead, kudos goes to <a href="http://octopress.org/">Octopress</a> for their jekyll setup :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dynamic Method Chains]]></title>
+    <link href="http://www.workmad3.com/2012/07/29/dynamic_method_chains/"/>
+    <updated>2012-07-29T00:00:00+01:00</updated>
+    <id>http://www.workmad3.com/2012/07/29/dynamic_method_chains</id>
+    <content type="html"><![CDATA[<p>Question from 29th June 2012 on #rubyonrails. Why doesn&rsquo;t the conditionally_include method execute any queries, while executing the send directly does?</p>
+
+<!-- more -->
+
+
+<p>Code provided:</p>
+
+<div><script src='https://gist.github.com/3194911.js'></script>
+<noscript><pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;503 Connection timed out&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Error 503 Connection timed out&lt;/h1&gt;
+    &lt;p&gt;Connection timed out&lt;/p&gt;
+    &lt;h3&gt;Guru Meditation:&lt;/h3&gt;
+    &lt;p&gt;XID: 1245708599&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Varnish cache server&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></noscript></div>
+
+
+<p>Setting apart the issue of whether this is a good idea or not, the core of the problem is as follows:</p>
+
+<ul>
+<li>&lsquo;includes(:account)&rsquo; gives you back an instance of ActiveRelation, a query-builder style object. It doesn&rsquo;t execute queries immediately, instead it gives you lazy query evaluation</li>
+<li>The each iteration in the method doesn&rsquo;t do anything with the method result, so the query will never be executed. On top of this, the result will just be discarded, as .each returns the collection it is called on.</li>
+<li>Executing a line in the console automatically calls &lsquo;inspect&rsquo; on the result. This happens to be one of the methods that will execute the lazy query object, so you see the result of the query (and the query appears in your logs)</li>
+</ul>
+
+
+<p>Keeping this in mind, the result to get the desired behaviour of a built query back can look a bit like:</p>
+
+<div><script src='https://gist.github.com/3195011.js'></script>
+<noscript><pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;503 Connection timed out&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Error 503 Connection timed out&lt;/h1&gt;
+    &lt;p&gt;Connection timed out&lt;/p&gt;
+    &lt;h3&gt;Guru Meditation:&lt;/h3&gt;
+    &lt;p&gt;XID: 1245723439&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Varnish cache server&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gist Posts]]></title>
+    <link href="http://www.workmad3.com/2012/07/28/gist-posts/"/>
+    <updated>2012-07-28T00:00:00+01:00</updated>
+    <id>http://www.workmad3.com/2012/07/28/gist-posts</id>
+    <content type="html"><![CDATA[<p>I realised today that most of my contributions to the rails community come in the form of help on the #rubyonrails IRC channel, which frequently ends up with a gist.
+This gist ends up in my github account with then no real context in order to understand what formed the code there, leaving isolated snippets that are mostly useless.</p>
+
+<!-- more -->
+
+
+<p>So today I put together this thought with my common annoyance of not being able to come up with blog topics and thought &lsquo;hey, why don&rsquo;t I blog about the questions from IRC?&rsquo;</p>
+
+<p>We&rsquo;ll see how it goes over the next few weeks, whether I actually manage to keep up the pace or not :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Where Are the Level 3 Unix People?]]></title>
+    <link href="http://www.workmad3.com/2011/10/17/level_3_unix/"/>
+    <updated>2011-10-17T00:00:00+01:00</updated>
+    <id>http://www.workmad3.com/2011/10/17/level_3_unix</id>
+    <content type="html"><![CDATA[<p>Lee Hambley(@codebeaker) at MagRails asked this question in his talk &ldquo;Grown-up Web Application Deployment&rdquo; and commented that the Unix community seemed to have a sharp divide between people who are experts and people who were advanced beginners (or, from the Dreyfus Model, level 2 and level 5 people). As had been mentioned previously, the best teachers come from the &lsquo;Level 3 &ndash; Competent&rsquo; range as these are the people who know what they are doing and, more importantly, know how they are
+doing it. Dreyfus is a skill-based approach, so a user can be level 2 in one skill and level 5 in another.</p>
+
+<!-- more -->
+
+
+<p>So why does this sharp gap appear in &lsquo;Unix Skills&rsquo;? Why does there appear to be a jump from Level 2 straight to Level 5? I think it may be tied into the question &lsquo;What is Unix Skill?&rsquo;, which is (when phrased like that) a very amorphous, ill-defined question. Is Unix skill defined by kernel hacking? By bash skills? By zsh skills? By skilled sed and awk use? Where is the skill that is &lsquo;Unix&rsquo;?</p>
+
+<p>My thought is that Unix isn&rsquo;t a single skill, definable by a single level in the Dreyfus model. Instead, Unix is an entire ecosystem of skills in various different, but related, areas. So how do we appear to have level 2 people, level 5 people and no one in-between? I suspect that the &lsquo;level 5&rsquo; people are really level 4 or level 5 in a large number of skills in the Unix ecosystem. This expertise creates a synthesis where they quickly become experts in other skills within the ecosystem,
+thereby becoming &lsquo;Unix Experts&rsquo;. The level 3 people exist, but they are level 3 in bash, or level 3 in Apache or nginx configuration, or level 3 in a large spectrum of unix skills, but they haven&rsquo;t gained expertise in enough skills to spark the synthesis that draws all the skills together into a Unix expert.</p>
+
+<p>So how can someone become a unix expert? I don&rsquo;t know as I haven&rsquo;t managed it yet. My suspicion is that as expertise is gained in various unix skills, they start to interact, combining and fusing together, with the common &lsquo;essence&rsquo; of each skill that makes it a unix skill being distilled out. If I ever manage to reach this pinnacle, maybe I&rsquo;ll have more insight. My worry is that if I do, I won&rsquo;t be able to explain it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why Test?]]></title>
+    <link href="http://www.workmad3.com/2011/01/18/why_test/"/>
+    <updated>2011-01-18T00:00:00+00:00</updated>
+    <id>http://www.workmad3.com/2011/01/18/why_test</id>
+    <content type="html"><![CDATA[<p>A question that frequently crops up with newcomers to various communities that encourage strong testing and test-first practices is &ldquo;Why should I test?&rdquo;. They are referring (hopefully) to the concept of writing automated tests that, on the surface, double the amount of code you&rsquo;re writing.
+If they&rsquo;re just referring to why should they bother to check that what they are doing works, compiles, does what they expect, and doesn&rsquo;t fire a death-ray at the moon (unless they are working on moon-death-rays that is) then there is a much deeper problem.</p>
+
+<!-- more -->
+
+
+<p>So why should you write automated tests for your code? And why should you write them before you write the code that will pass the test? Obviously, if you aren&rsquo;t convinced of the first answer then you won&rsquo;t be happy with answers to the second one so I&rsquo;ll address that one first.</p>
+
+<h2>Why write automated tests?</h2>
+
+<p>Well, the first thing to note is that you are probably already testing to some extent. I&rsquo;m talking about the times when you compile your code and run it to make sure the brilliant new factorial function you just wrote does calculate a factorial and not just throw out random numbers.
+So what do you do? You probably bring it up in some way that you can call the method and throw some values at it and check that the values are correct, probably by manually working them out. And then, you throw all that work away. When you rewrite the function (because you realised that there&rsquo;s
+a way to do it that&rsquo;s 20 times faster), you either have to repeat all that work, or you decide that it must be right after all, it worked before didn&rsquo;t it? Of course, you could just not test at all, but then you don&rsquo;t actually know your code works. As you build more and more on top of your factorial
+function, there will always be a bit of doubt that it isn&rsquo;t working quite right. And then you get a phone call at 2a.m. telling you to get in and fix a bug that just caused the entire banking system of the world to crash and burn and civilization as we know it has ended (or not&hellip; I&rsquo;ve yet to
+come across a factorial function quite <strong>that</strong> important. But it might happen)</p>
+
+<p>To contrast, the case with an automated test is that you write the test after the first run through and verify it. The test gives you a &lsquo;yes/no&rsquo; answer for if the function calculates factorials. You&rsquo;ve likely calculated a few simple cases manually still, but the important difference is that
+they are now recorded in an executable fashion. When you rewrite the function this time, you don&rsquo;t need to repeat the testing or not bother verifying your changes, you just re-run the same test and it should still tell you that the code is calculating factorials (but hopefully the test runs
+quicker :) )</p>
+
+<p>It should be obvious here that automated tests aren&rsquo;t actually requiring you to do more work. They just give you a way to record what <em>you should be doing anyway</em>, namely verifying your assumptions that the code you just wrote does what you say it should. Every passing test is another
+verification that you can write code, that the code you write does what you tell it to and that when you change or add code, it still does what you expected.</p>
+
+<p>Now, you could be writing your tests in test scripts that someone checks periodically, or writing expected outcomes in comments,
+or any other of a few hundred ways of recording your initial results for when you need to re-test later. However, if the record isn&rsquo;t executable (as an automated test is) then you&rsquo;ll still need to re-run the test manually, which will take time. And you&rsquo;ll need to recheck the results
+manually, which will take even more time and is error prone (especially when comparing string outputs. Two letters mixed up are easily missed by a mere human, but a computer will always pick up on the error).</p>
+
+<p>So you&rsquo;ve recorded your assumptions and you can execute them whenever you want to give yourself that little pat on the back that says &lsquo;Yes, I can do my job, see this green bar is telling me so&rsquo; (if the green bar <strong>does</strong> talk to you, turn off your speakers. If that doesn&rsquo;t help, see a
+psychiatrist). There is another important thing happening here though &ndash; you&rsquo;re double-checking your code. After all, you have written the same thing in two different ways. Far from being a waste, this is a very important thing to do. Most people have probably heard the old carpenter&rsquo;s
+mantra &lsquo;Measure twice, cut once&rsquo;. Well, you&rsquo;ve just measured twice. If either measurement is out, the test will fail and you&rsquo;ll work out whether it&rsquo;s because the test is wrong or the code is wrong. If you had just code, you&rsquo;d have nothing to compare it to and when (not if) a problem
+occurs you can&rsquo;t tell because you have no second measurement to act as a reference point. Obviously, tests without code are pointless so having just them isn&rsquo;t much good (unless you know the tests are correct anyway&hellip; and then you have an interesting challenge in rebuilding the code
+they were testing)</p>
+
+<p>So, now I&rsquo;ve convinced you that writing automated tests is good (or you&rsquo;re just reading on because you want to see if my writing gets any worse), I&rsquo;ll go onto the case for testing first</p>
+
+<h2>Why test first?</h2>
+
+<p>So you&rsquo;re happily writing your code, and then writing some tests to make sure it works as expected, and someone comes up to you and says &ldquo;You&rsquo;re doing it wrong! You should write the test before the code it&rsquo;s testing&rdquo;. To most people, this is counter-intuitive and sounds crazy (I know my wife
+thinks this) but it does bring a lot of benefits, which I&rsquo;ll try and lay out here as the reasons you should be doing Test-First Development.</p>
+
+<p>Firstly, test-first makes you stop and think about the code you&rsquo;re going to write. You have an explicit step where you have to put down the keyboard, step back and say &lsquo;OK, what is this code going to do that I can test?&rsquo;. Now, hopefully you actually do this most of the time but if you&rsquo;re like
+me then you will find yourself, on occasion, jumping into code and just hacking it out without any real thought going into what you&rsquo;re writing or what direction you&rsquo;re going. Having an explicit check before writing new code just reels you in and reminds you that, hey, a bit of thought before
+churning out code like a madman is a Good Thing&trade;</p>
+
+<p>Next, by writing the test first (and running it) then you know that the test fails. More importantly, when you have a test that fails, write some code, re-run the test and it passes, then you know that the code you wrote is what made it pass. If you write the test after the code then you are lacking
+this important verification and you simply <em>don&rsquo;t know</em> if the test you wrote would pass without the code. And if you find the test would have passed, then what is that code you just wrote actually doing? Is it actually important? Can you remove it safely, or is some other test that you wrote even
+further down the line actually testing this? If this is sounding confusing, it&rsquo;s nothing compared to the confusion of having tests that aren&rsquo;t testing what they say (and you think) they should be testing.</p>
+
+<p>Thirdly (and finally for me here), it helps to stop you writing code that you can&rsquo;t test. This is coupled partly with the first point but I feel it stands alone. A lot of people who start with just automated testing find themselves having just written some code and they just can&rsquo;t (easily)
+write test for it. There are many reasons, such as it requires a lot of expensive setup that just isn&rsquo;t feasible or they can&rsquo;t get the test input into it without hacking the code to pieces. Sometimes you just end up with something that doesn&rsquo;t really return an output, it just manipulates
+some other object (and that leads to mocks, which is a subject for other times and places). However, by reversing the process and always thinking about how to test code before you write it, you invariably end up with code that you can actually test. And as long as you can test it, you
+can change it more easily, because you know when you break it and code that is more easily changeable is more flexible and less coupled to the rest of the system. Low coupling and flexibility are two things that are almost always present in designs that are classed as &lsquo;good&rsquo; and test-first development
+is one way to achieve them with very little actual overhead.</p>
+
+<h2>TL;DR Summary</h2>
+
+<p>For those that don&rsquo;t like reading too much (I can be quite verbose) the main points are:</p>
+
+<ol>
+<li>Automated testing isn&rsquo;t much extra work. Mostly it moves implicit testing into an explicit step</li>
+<li>Automated testing removes work down the line from when tests were recorded and had to be manually followed, or aren&rsquo;t recorded at all</li>
+<li>Test first gives you explicit times to think about code</li>
+<li>Test first provides you with a way to verify the test itself works</li>
+<li>Test first is a way to achieve flexible designs with low coupling</li>
+</ol>
+
+
+<p>So why don&rsquo;t you test?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Omniauth and Devise]]></title>
+    <link href="http://www.workmad3.com/2011/01/06/omniauth_and_devise/"/>
+    <updated>2011-01-06T00:00:00+00:00</updated>
+    <id>http://www.workmad3.com/2011/01/06/omniauth_and_devise</id>
+    <content type="html"><![CDATA[<p>One of the last implementation parts of the fishdelish project is a self-publishing mechanism. Having gotten to the start of this task, I realised that it needed
+some form of user identification. With the recent gawker security breach on my mind, I was very much in the mood for an external solution which led me to Omniauth
+and the latest branch of Devise which contains strategies for its use.</p>
+
+<!-- more -->
+
+
+<p>One key part of integrating such a sign-on mechanism to me is to make sure it is testable and then to test it, which in turn led me to find out how to test with
+third party services in omniauth. This is where Devise comes in handy, as it provides test modes and stubs for the omniauth library that allows you to test that
+your integration is correct while stubbing out the third party calls that would otherwise prove problematic (after all, you don&rsquo;t want to actually authenticate
+against facebook with your tests).</p>
+
+<p>The first part is to get Cucumber set up for these tests. Drawing on the <a href="https://github.com/plataformatec/devise/wiki/OmniAuth:-Testing">Devise omniauth documentation</a>,
+I came up with the following:</p>
+
+<div><script src='https://gist.github.com/3197207.js?file=omniauth.rb'></script>
+<noscript><pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;503 Connection timed out&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Error 503 Connection timed out&lt;/h1&gt;
+    &lt;p&gt;Connection timed out&lt;/p&gt;
+    &lt;h3&gt;Guru Meditation:&lt;/h3&gt;
+    &lt;p&gt;XID: 1245690120&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Varnish cache server&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></noscript></div>
+
+
+<p>Basically, you start by putting OmniAuth into test mode, and then short-circuit and stub the authorizers before each scenario and reset them afterwards (to return them to a clean slate).</p>
+
+<p>You can then login by following the link to the facebook/twitter/open-id login on your page in your Scenario. Once you&rsquo;ve done the authentication callbacks for your chosen service(s) then the step
+will pass and you can continue as an authenticated user. Magic! Next, I&rsquo;ll drill down into the implementation of the callback handlers and work out how to test them through RSpec.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New Year, New Site]]></title>
+    <link href="http://www.workmad3.com/2011/01/05/new_year_new_site/"/>
+    <updated>2011-01-05T00:00:00+00:00</updated>
+    <id>http://www.workmad3.com/2011/01/05/new_year_new_site</id>
+    <content type="html"><![CDATA[<p>Well, I finally decided to get my site sorted out for the new year and the result is what you&rsquo;re seeing in front of you.</p>
+
+<!-- more -->
+
+
+<p>For those interested in the boring technical details, this new site has been built using the static-site generator Jekyll, and I&rsquo;ve styled it with the Blueprint CSS grid framework.
+The colour scheme is one I found that I liked in Kuler, the menu system is one I picked up from a free CSS menu site and I put it all together by hand.</p>
+
+<p>The code and content is also hosted on github <a href="http://github.com/workmad3/workmad3.com">here</a></p>
+
+<p>This is all in aid of trying to produce a blog that I&rsquo;ll actually update. My previous attempts are <a href="http://sharedillusions.blogspot.com">Shared Illusions</a> and <a href="http://reflectivecoder.blogspot.com">Reflective Coder</a>
+and my hypothesis is that now I&rsquo;ve moved the blog onto my own domain I&rsquo;ll be more driven to write content for it.</p>
+
+<p>We&rsquo;ll see how that goes :)</p>
+]]></content>
+  </entry>
+  
+</feed>

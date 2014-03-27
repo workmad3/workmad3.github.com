@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dynamic Method Chains - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+  <meta name="Generator" content="Jekyll & Octopress (http://octopress.org)">
+
+  
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.workmad3.com/2012/07/29/dynamic_method_chains">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="http://feeds.feedburner.com/workmad3" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+
+<!--Fonts from Google's Web font directory at http://google.com/webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-10792414-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+   
+  <link href="/octopress-favicon.png" rel="icon">
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds.feedburner.com/workmad3" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.workmad3.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+  <li><a href="/pages/projects">Projects</a></li>
+  <li><a href="/pages/cv">CV</a></li>
+  <li><a href="/pages/about-me">About me</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+
+
+
+
+
+
+
+
+
+
+
+<article class="hentry " role="article">
+  
+  <header>
+    <h1 class="entry-title">
+
+Dynamic Method Chains
+
+</h1>
+
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-29T00:00:00+01:00" pubdate data-updated="true"></time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://www.workmad3.com">Comments</a>
+        
+      </p>
+    
+  </header>
+
+<div class="entry-content"><p>Question from 29th June 2012 on #rubyonrails. Why doesn&rsquo;t the conditionally_include method execute any queries, while executing the send directly does?</p>
+
+<!-- more -->
+
+
+<p>Code provided:</p>
+
+<div><script src='https://gist.github.com/3194911.js'></script>
+<noscript><pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;503 Connection timed out&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Error 503 Connection timed out&lt;/h1&gt;
+    &lt;p&gt;Connection timed out&lt;/p&gt;
+    &lt;h3&gt;Guru Meditation:&lt;/h3&gt;
+    &lt;p&gt;XID: 1245708599&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Varnish cache server&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></noscript></div>
+
+
+<p>Setting apart the issue of whether this is a good idea or not, the core of the problem is as follows:</p>
+
+<ul>
+<li>&lsquo;includes(:account)&rsquo; gives you back an instance of ActiveRelation, a query-builder style object. It doesn&rsquo;t execute queries immediately, instead it gives you lazy query evaluation</li>
+<li>The each iteration in the method doesn&rsquo;t do anything with the method result, so the query will never be executed. On top of this, the result will just be discarded, as .each returns the collection it is called on.</li>
+<li>Executing a line in the console automatically calls &lsquo;inspect&rsquo; on the result. This happens to be one of the methods that will execute the lazy query object, so you see the result of the query (and the query appears in your logs)</li>
+</ul>
+
+
+<p>Keeping this in mind, the result to get the desired behaviour of a built query back can look a bit like:</p>
+
+<div><script src='https://gist.github.com/3195011.js'></script>
+<noscript><pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+ &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;503 Connection timed out&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Error 503 Connection timed out&lt;/h1&gt;
+    &lt;p&gt;Connection timed out&lt;/p&gt;
+    &lt;h3&gt;Guru Meditation:&lt;/h3&gt;
+    &lt;p&gt;XID: 1245723439&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Varnish cache server&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></noscript></div>
+
+
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-29T00:00:00+01:00" pubdate data-updated="true"></time>
+
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gists/'>gists</a>, <a class='category' href='/blog/categories/irc-question/'>irc-question</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+
+      
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.workmad3.com/2012/07/29/dynamic_method_chains/" data-via="" data-counturl="http://www.workmad3.com/2012/07/29/dynamic_method_chains/" >Tweet</a>
+  
+  
+    
+      <a title="+1 on Google Plus" class="googleplus-share" href="https://plusone.google.com/_/+1/confirm?hl=en&url=http://www.workmad3.com/2012/07/29/dynamic_method_chains/" target="_blank">+1</a>
+    
+  
+  
+    
+    <a title="Share on Facebook" class="facebook-share" href="http://www.facebook.com/sharer.php?u=http://www.workmad3.com/2012/07/29/dynamic_method_chains/" target="_blank">Share</a>
+    
+  
+  
+
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/07/28/gist-posts/" title="Previous Post: Gist posts">&laquo; Gist posts</a>
+      
+      
+        <a class="basic-alignment right" href="/2012/07/29/octopress/" title="Next Post: Octopress">Octopress &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+<section>
+  <h1>Comments</h1>
+  
+
+  
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  
+</section>
+
+</div>
+
+<aside class="sidebar">
+  
+    Included file 'sidebars/' not found in _includes directory
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'workmad3';
+			var disqus_developer = '0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.workmad3.com/2012/07/29/dynamic_method_chains/';
+        var disqus_url = 'http://www.workmad3.com/2012/07/29/dynamic_method_chains/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+</body>
+</html>
